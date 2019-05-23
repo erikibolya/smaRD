@@ -1,0 +1,19 @@
+@import "variables.scss";
+
+.header{
+    position: fixed;
+    width: 100%;
+    @include linear-interpolation-chain(height, $header-heights);
+    @include material-box-shadow(2);
+}
+
+.header__container{
+    @include container;
+    height: 100%;
+    align-items: center;
+}
+
+.header__menu{
+    margin-left: auto;
+}
+

@@ -1,0 +1,37 @@
+@mixin container() {
+    display: flex;
+    width: 100%;
+    max-width: rem($layout-container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    @include linear-interpolation-chain(padding-left,$layout-container-inner-paddings);
+    @include linear-interpolation-chain(padding-right,$layout-container-inner-paddings);
+}
+
+@mixin container-pl{
+    display: flex;
+    width: 100%;
+    max-width: rem($layout-container-max-width); 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@function even-margin-between($per-row,$width){
+    @return even-margin-between-custom($per-row,100 - ($per-row * $width));
+}
+
+@function even-margin-between-custom($per-row,$unused-space){
+    @return ($unused-space/($per-row - 1)) *1%;
+}
+
+@function even-margin-around($per-row,$width){
+    @return even-margin-around-custom($per-row,100 - ($per-row * $width));
+}
+
+@function even-margin-around-custom($per-row,$unused-space){
+    @return ($unused-space/($per-row+1)) *1%;
+}
+
+
+
+

@@ -1,0 +1,91 @@
+@function rem($value)  {
+    $value: ($value / 16) * 1rem;
+    @return $value;
+}
+
+@function em($value)  {
+    $value: ($value / 16) * 1em;
+    @return $value;
+}
+
+@function z-index($name) {
+    @if map-has-key($z-indexes, $name) {
+        @return map-get($z-indexes, $name);  
+    }
+    @warn "The key #{$name} is not in the map ’$z-indexes’";
+    @return null;
+};
+
+@function linear-interpolation($map,$unit:"vw") {
+    @if (length($map) != 2) {
+        @error "linear-interpolation() $map must be exactly 2 values";
+    }
+    @each $key,$value in $map{
+        @if (type-of($key) == 'number'){
+            $map: map-merge(map-remove($map,$key),(strip-unit($key): $value));
+        }@else{
+            @if ($unit == 'vw'){
+                $map: map-merge(map-remove($map,$key),(media-get-breakpoint($key): $value));
+            }@elseif ($unit == "vh"){
+                $map: map-merge(map-remove($map,$key),(media-get-breakpoint-v($key): $value));
+            }
+
+        }
+    }
+    
+    
+    $keys: map-keys($map);
+    $x1: nth($keys,1);
+    $x2: nth($keys,2);
+    $y1: map-get($map, nth($keys, 1));
+    $y2: map-get($map, nth($keys, 2));
+    $m: ($y2 - $y1)/($x2 - $x1);
+    $b: $y1 - ($m*$x1);
+    @if ($b < 0) {
+        @return calc(#{$m*100}#{$unit} - #{rem(abs($b))}); 
+    }@else{
+        @return calc(#{$m*100}#{$unit} + #{rem($b)}); 
+    }
+
+}
+
+@mixin linear-interpolation-chain($property, $map, $unit: "vw"){
+    @if (length($map) < 2) {
+        @error "linear-interpolation-chain() $map argument must have at least 2 values";
+    }
+    $length: length($map);
+    $keys: map-keys($map);
+    @for $i from $length through 2{
+        $key: nth($keys, $i);
+        $key_n: nth($keys, $i - 1);
+        @if ($i == $length){
+            #{$property} : linear-interpolation((
+                $key_n: map-get($map, $key_n),
+                $key: map-get($map, $key)
+                ),$unit);
+
+        }@else{
+            @include media($key){
+                #{$property} : linear-interpolation((
+                    $key_n: map-get($map, $key_n),
+                    $key: map-get($map, $key)
+                    ),$unit);
+            }    
+        }
+    }
+    $key: nth($keys, 1);
+    @include media($key){
+        #{$property} : rem(map-get($map, $key));
+    }    
+
+}
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}

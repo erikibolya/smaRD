@@ -1,0 +1,8 @@
+@import "variables.scss";
+
+.hamburger{
+    display: block;
+    @include linear-interpolation-chain(width,$hamburger-sizes);
+    @include linear-interpolation-chain(height,$hamburger-sizes);
+}
+

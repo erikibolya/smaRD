@@ -1,0 +1,233 @@
+/*@import "material/buttons.scss";*/
+@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin-ext");
+html {
+  font-family: "Roboto", Verdana, sans-serif;
+  min-height: 100vh;
+  font-size: 100%; }
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #616161; }
+
+.heading {
+  font-weight: bold;
+  font-style: normal;
+  font-family: "Lora", Georgia, serif; }
+  .heading--regular {
+    font-weight: normal; }
+  .heading--italic {
+    font-style: italic;
+    font-weight: normal; }
+
+.heading--1 {
+  font-size: calc(1.1363636364vw + 2.0227272727rem);
+  margin-top: 0;
+  margin-bottom: 0.5em; }
+  @media (min-width: 75em) {
+    .heading--1 {
+      font-size: 2.875rem; } }
+
+.heading--2 {
+  font-size: calc(0.6818181818vw + 1.7386363636rem);
+  margin-top: 0;
+  margin-bottom: 0.5em; }
+  @media (min-width: 75em) {
+    .heading--2 {
+      font-size: 2.25rem; } }
+
+.heading--3 {
+  font-size: calc(0.6818181818vw + 1.4886363636rem);
+  margin-top: 0;
+  margin-bottom: 0.5em; }
+  @media (min-width: 75em) {
+    .heading--3 {
+      font-size: 2rem; } }
+
+.heading--4 {
+  font-size: calc(0.4545454545vw + 1.2840909091rem);
+  margin-top: 0;
+  margin-bottom: 0.5em; }
+  @media (min-width: 75em) {
+    .heading--4 {
+      font-size: 1.625rem; } }
+
+.heading--5 {
+  font-size: calc(0.4545454545vw + 1.0340909091rem);
+  margin-top: 0;
+  margin-bottom: 0.5em; }
+  @media (min-width: 75em) {
+    .heading--5 {
+      font-size: 1.375rem; } }
+
+.heading--6 {
+  font-size: calc(0.2272727273vw + 0.9545454545rem);
+  margin-top: 0;
+  margin-bottom: 0.5em; }
+  @media (min-width: 75em) {
+    .heading--6 {
+      font-size: 1.125rem; } }
+
+.header {
+  position: fixed;
+  width: 100%;
+  height: calc(2.2727272727vw + 3.2954545455rem);
+  box-shadow: 0 0.089673913rem 0.2201086957rem -0.0190217391rem rgba(0, 0, 0, 0.2), 0 0.125rem 0.1630434783rem 0.0081521739rem rgba(0, 0, 0, 0.14), 0 0.1440217391rem 0.1847826087rem -0.0380434783rem rgba(0, 0, 0, 0.12); }
+  @media (min-width: 75em) {
+    .header {
+      height: 5rem; } }
+
+.header__container {
+  display: flex;
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: calc(3.5714285714vw - 0.0892857143rem);
+  padding-right: calc(3.5714285714vw - 0.0892857143rem);
+  height: 100%;
+  align-items: center; }
+  @media (min-width: 37.5em) {
+    .header__container {
+      padding-left: calc(3.3333333333vw + 0rem); } }
+  @media (min-width: 56.25em) {
+    .header__container {
+      padding-left: calc(3.3333333333vw + 0rem); } }
+  @media (min-width: 75em) {
+    .header__container {
+      padding-left: 2.5rem; } }
+  @media (min-width: 37.5em) {
+    .header__container {
+      padding-right: calc(3.3333333333vw + 0rem); } }
+  @media (min-width: 56.25em) {
+    .header__container {
+      padding-right: calc(3.3333333333vw + 0rem); } }
+  @media (min-width: 75em) {
+    .header__container {
+      padding-right: 2.5rem; } }
+
+.header__menu {
+  margin-left: auto; }
+
+.logo {
+  background-color: black;
+  width: calc(11.3636363636vw + 7.1022727273rem);
+  height: calc(1.9886363636vw + 2.2585227273rem); }
+  @media (min-width: 75em) {
+    .logo {
+      width: 15.625rem; } }
+  @media (min-width: 75em) {
+    .logo {
+      height: 3.75rem; } }
+
+.main {
+  flex-grow: 1; }
+
+#menu-trigger {
+  display: none; }
+  #menu-trigger:checked ~ .menu__container {
+    transform: translateX(0%); }
+
+.menu__label {
+  display: block;
+  cursor: pointer;
+  margin-left: auto; }
+  @media (min-width: 50em) {
+    .menu__label {
+      display: none; } }
+
+.menu__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  transform: translateX(-100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  @media (min-width: 50em) {
+    .menu__container {
+      display: block;
+      width: auto;
+      height: auto;
+      transform: translateX(0);
+      position: relative; } }
+
+.menu__container__header {
+  display: flex;
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: calc(3.5714285714vw - 0.0892857143rem);
+  padding-right: calc(3.5714285714vw - 0.0892857143rem);
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: calc(2.2727272727vw + 3.2954545455rem); }
+  @media (min-width: 37.5em) {
+    .menu__container__header {
+      padding-left: calc(3.3333333333vw + 0rem); } }
+  @media (min-width: 56.25em) {
+    .menu__container__header {
+      padding-left: calc(3.3333333333vw + 0rem); } }
+  @media (min-width: 75em) {
+    .menu__container__header {
+      padding-left: 2.5rem; } }
+  @media (min-width: 37.5em) {
+    .menu__container__header {
+      padding-right: calc(3.3333333333vw + 0rem); } }
+  @media (min-width: 56.25em) {
+    .menu__container__header {
+      padding-right: calc(3.3333333333vw + 0rem); } }
+  @media (min-width: 75em) {
+    .menu__container__header {
+      padding-right: 2.5rem; } }
+  @media (min-width: 75em) {
+    .menu__container__header {
+      height: 5rem; } }
+
+.menu__item {
+  text-decoration: none;
+  color: #616161;
+  font-size: calc(0.6818181818vw + 1.4886363636rem); }
+  @media (min-width: 75em) {
+    .menu__item {
+      font-size: 2rem; } }
+  .menu__item:not(:last-of-type) {
+    margin-bottom: 1em; }
+  @media (min-width: 50em) {
+    .menu__item {
+      font-size: calc(0.2272727273vw + 0.9545454545rem); } }
+  @media (min-width: 50em) and (min-width: 75em) {
+    .menu__item {
+      font-size: 1.125rem; } }
+  @media (min-width: 50em) {
+      .menu__item:not(:last-of-type) {
+        margin-right: 2em; } }
+  .menu__item:hover, .menu__item--active {
+    color: #81c784; }
+
+.hamburger {
+  display: block;
+  width: calc(1.7045454545vw + 1.8465909091rem);
+  height: calc(1.7045454545vw + 1.8465909091rem); }
+  @media (min-width: 75em) {
+    .hamburger {
+      width: 3.125rem; } }
+  @media (min-width: 75em) {
+    .hamburger {
+      height: 3.125rem; } }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700&subset=latin-ext'); //Lora - serif, regular, regular italic and bold
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin-ext'); //Roboto - sans-serif, regular
+
+
+
+$font-sans-serif: 'Roboto',Verdana, sans-serif;
+$font-serif: 'Lora',Georgia, serif;
+
+html{
+    font-family: $font-sans-serif;
+    min-height: 100vh;
+    font-size: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body{ 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: $color-primary;
+}
+
+

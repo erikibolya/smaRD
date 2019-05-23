@@ -1,0 +1,17 @@
+@mixin fluid-font($size){
+    @if(map-has-key($font-sizes, $size)){
+        @include linear-interpolation-chain(font-size,map-get($font-sizes,$size));
+    }@else{
+        @error "The key #{$size} is missing in the map ’$font-sizes’";  
+    }
+}
+
+@mixin heading($size){
+    @if(map-has-key($headings-sizes, $size)){
+        @include fluid-font(map-get($headings-sizes,$size));
+        margin-top: 0;
+        margin-bottom: 0.5em;
+    }@else{
+        @error "The key #{$size} is missing in the map ’$font-sizes’";  
+    }
+}

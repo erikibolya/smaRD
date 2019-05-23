@@ -9,108 +9,44 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style type="text/css">
-            html,body{
-                min-height: 100vh;
-                padding:0;
-                margin: 0;
-            }
-            *{
-                box-sizing: border-box;
-            }
-
-            body{
-                display: flex;
-                flex-direction: column;
-            }
-            .container{
-                display: flex;
-                flex-grow: 1;
-                background-color: red;
-                margin-left: auto;
-                margin-right: auto;
-                max-width: 1200px;
-                width: 100%;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: center;
-                align-content: center;
-            }
-
-            .item{
-
-
-                width: 33.33333%;
-            }
-
-            .inner{
-                border: 1px solid black;
-                width: 90%;
-                padding-top: 90%;
-                background-color: green;
-                margin: 0 auto;
-                margin-bottom: 10%;
-            }
-            
-            
-
-            @media (min-width: 1200px){
-                .item{
-
-                }
-            }
-
-        </style>
+        <link rel="stylesheet" href="public/css/main.css">
+        <link rel="stylesheet" href="public/css/normalize.css">
     </head>
     <body>
-        <div class="container">
-            <div class="item">
-                <div class="inner">
+        <header class="header">
+            <div class="header__container">
+                <div class="header__logo">
+                    <div class="logo">
+
+                    </div>
+                </div>
+                <div class="header__menu menu">
+                    <input type="checkbox" id="menu-trigger">
+                    <label for="menu-trigger" class="menu__label">
+                        <svg class="hamburger" viewBox="0 0 50 50" >
+                        <path style=" " d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z "/>
+                        </svg>
+                    </label>
+                    <div class="menu__container">
+                        <div class="menu__container__header">
+                            <label for="menu-trigger" class="menu__label">
+                                <svg class="hamburger" viewBox="0 0 50 50" >
+                                <path style=" " d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z "/>
+                                </svg>
+                            </label>
+                        </div>
+
+                        <a class="menu__item" href="#neco">Inteligentní domy</a>
+                        <a class="menu__item" href="#neco">Funkce</a>
+                        <a class="menu__item" href="#neco">Vzorový dům</a>
+                        <a class="menu__item" href="#neco">Kontakt</a>
+                    </div>
 
                 </div>
             </div>
-            <div class="item">
-                <div class="inner">
+            <main class="main">
 
-                </div>
-            </div>
-            <div class="item">
-                <div class="inner">
-
-                </div>
-            </div>
-            <div class="item">
-                <div class="inner">
-
-                </div>
-            </div>
-            <div class="item">
-                <div class="inner">
-
-                </div>
-            </div>
-            <div class="item">
-                <div class="inner">
-
-                </div>
-            </div>
-            <div class="item">
-                <div class="inner">
-
-                </div>
-            </div>
-            <div class="item">
-                <div class="inner">
-
-                </div>
-            </div>
-            <div class="item">
-                <div class="inner">
-
-                </div>
-            </div>
-
-        </div>
-
+            </main>
+        </header>
     </body>
 </html>

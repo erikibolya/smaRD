@@ -1,0 +1,79 @@
+@import "variables.scss";
+
+#menu-trigger{
+    display: none;
+    &:checked{
+        ~ .menu__container{
+            transform: translateX(0%);
+        }
+    }
+}
+
+.menu__label{
+    display: block;
+    cursor: pointer;
+    margin-left: auto;
+
+
+    @include media($menu-breakpoint){
+        display: none;
+    }
+}
+
+.menu__container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-secondary;
+    transform: translateX(-100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include media($menu-breakpoint){
+        display: block;
+        width: auto;
+        height: auto;
+        transform: translateX(0);
+        position: relative;
+    }
+}
+
+.menu__container__header{
+    @include container();
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    @include linear-interpolation-chain(height, $header-heights);
+}
+
+.menu__item{
+
+    text-decoration: none;
+    color: $color-primary;
+    @include fluid-font(l);
+
+
+    &:not(:last-of-type){
+        margin-bottom: $menu-item-spacing-respo;
+    }
+
+
+    @include media($menu-breakpoint){
+        @include fluid-font(xs);
+        &:not(:last-of-type){
+            margin-right: $menu-item-spacing-desktop;
+        }
+
+    }
+
+    &:hover,&--active{
+        color: $color-terciary;
+    }
+}
+

@@ -1,0 +1,53 @@
+//layout
+$layout-line-height-base: 1.45;
+$layout-container-max-width: 1280;
+$layout-container-inner-paddings: (
+xl: 40,
+l: 30,
+m: 20,
+s: 10
+);
+//!layout
+
+//media
+$media-breakpoints-map: (
+s: 320, //phone up
+m: 600, //tablet portrait up
+l: 900, //tablet landscape up
+xl: 1200 //desktop up
+);
+
+$media-breakpoints-map-v: (
+s: 600,
+xl: 900
+);
+
+$media-rules-map: (
+w: "min-width",
+h: "min-height",
+o: "orientation",
+ar: "min-aspect-ratio"
+);
+//!media
+
+//fonts
+$font-sizes:(
+xxl:(xl:46,s:36),
+xl:(xl:36,s:30),
+l:(xl:32,s:26),
+m:(xl:26,s:22),
+s:(xl:22,s:18),
+xs:(xl:18,s:16),
+);
+//!fonts
+
+//headings
+$headings-sizes:(
+h1:xxl,
+h2:xl,
+h3:l,
+h4:m,
+h5:s,
+h6:xs
+);
+//!headings

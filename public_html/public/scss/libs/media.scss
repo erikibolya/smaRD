@@ -1,0 +1,132 @@
+@function media-get-breakpoint($breakpoint){
+    @if media-has-breakpoint($breakpoint) {
+        @return map-get($media-breakpoints-map,$breakpoint);
+    }@else{
+        @error "The key #{$breakpoint} is missing in the map ’$media-breakpoints-map’";  
+    }    
+}
+
+@function media-has-breakpoint($breakpoint){
+    @return map-has-key($media-breakpoints-map, $breakpoint)   
+}
+
+@function media-get-breakpoint-v($breakpoint){
+    @if media-has-breakpoint-v($breakpoint) {
+        @return map-get($media-breakpoints-map-v,$breakpoint);
+    }@else{
+        @error "The key #{$breakpoint} is missing in the map ’$media-breakpoints-map-v’";  
+    }    
+}
+
+@function media-has-breakpoint-v($breakpoint){
+    @return map-has-key($media-breakpoints-map-v, $breakpoint)   
+}
+
+@function parse-breakpoint($breakpoint){
+    @if type-of($breakpoint) == string {
+        @return media-get-breakpoint($breakpoint);
+    }@elseif type-of($breakpoint) == number{
+        @return strip-unit($breakpoint);
+    }@else{
+        @error "The key #{$breakpoint} must be string matching key in ’$media-breakpoints-map’ or a number";  
+    }
+}
+
+@function parse-breakpoint-v($breakpoint){
+    @if type-of($breakpoint) == string {
+        @return media-get-breakpoint-v($breakpoint);
+    }@elseif type-of($breakpoint) == number{
+        @return strip-unit($breakpoint);
+    }@else{
+        @error "The key #{$breakpoint} must be string matching key in ’$media-breakpoints-map-v’ or a number";  
+    }
+}
+
+@function media-get-rule($rule){
+    @if map-has-key($media-rules-map, $rule) {
+        @return map-get($media-rules-map,$rule);
+    }@else{
+        @error "The key #{$rule} is missing in the map ’$media-rules-map’";  
+    }    
+}
+
+@mixin media($breakpoint) {
+    @media (min-width: em(parse-breakpoint($breakpoint))){
+        @content;
+    }
+}
+
+@mixin media-v($breakpoint) {
+    @media (min-height: em(parse-breakpoint-v($breakpoint))){
+        @content;
+    }
+}
+
+@mixin media-portrait() {
+    @media (orientation:portrait) {
+        @content;
+    }
+}
+
+@mixin media-landscape() {
+    @media (orientation:landscape) {
+        @content;
+    }
+}
+
+@mixin media-retina() {
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 2dppx)  {
+        @content;
+    }
+}
+
+@mixin media-min-aspect-ratio($aspect-ratio) {
+    @media (min-aspect-ratio: #{$aspect-ratio}) {
+        @content;
+    }
+}
+
+@mixin media-max-aspect-ratio($aspect-ratio) {
+    @media (max-aspect-ratio: $aspect-ratio) {
+        @content;
+    }
+}
+
+@mixin media-custom($rules...) {
+    $string: null;
+    $counter: 1;
+    $size: length($rules);
+    @each $map in $rules {
+        $counter_inner: 1;
+        $size_inner: length($map);
+        @each $key,$value in $map{
+            @if media-has-breakpoint($value){
+                $value: rem(media-get-breakpoint($value)); 
+            }@elseif media-has-breakpoint-v($value){
+                $value: rem(media-get-breakpoint-v($value));
+            }@elseif type-of($value) == number{
+                $value: rem($value); 
+            }
+            @if $counter_inner == $size_inner{
+                $string: $string#{"("+media-get-rule($key)+":"+$value+")"}; 
+            }@else{
+                $string: $string#{"("+media-get-rule($key)+":"+$value+") and "}; 
+            }
+            $counter_inner: $counter_inner + 1;
+        }
+        @if $counter < $size{
+            $string: $string + ", "; 
+        }
+        $counter: $counter + 1;
+    }
+    @media #{$string}{
+        @content;
+    }
+
+}

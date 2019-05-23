@@ -1,0 +1,115 @@
+$material-button-default: $material-color-grey-900;
+$material-button-primary: $material-color-blue-500;
+$material-button-success: $material-color-green-500;
+$material-button-warning:$material-color-orange-500;
+$material-button-danger: $material-color-red-500;
+$material-button-border-radius: 2px;
+
+.material-button{
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    outline:none;
+    border-radius: $material-button-border-radius;
+    letter-spacing: .5px;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    line-height: 1;
+    color: white;
+    transition: box-shadow 300ms linear;
+
+    &:not([disabled]):not(.btn-light):hover{
+        box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
+        transition:box-shadow 300ms linear;
+    }
+
+    &.btn-dark{
+        color: $material-button-default;
+    }
+
+    &.btn-inline{
+        display: inline-block;
+    }
+
+    &.btn-large{
+        padding: 0 4rem;
+        line-height: 3;
+    }
+    &.btn-file{
+        > input{
+            display: none;
+        }
+    }
+
+    &.btn-default{
+        background-color: $material-button-default;
+        &.btn-light{
+            background-color: transparent;
+            border: 1px solid $material-button-default;
+            color: $material-button-default;
+            &:hover{
+                color: white;
+                background-color: $material-button-default;
+            }
+        }
+    }
+    &.btn-primary{
+        background-color: $material-button-primary;
+        &.btn-light{
+            background-color: transparent;
+            border: 1px solid $material-button-primary;
+            color: $material-button-primary;
+            &:hover{
+                color: white;
+                background-color: $material-button-primary;
+            }
+        }
+    }
+    &.btn-danger{
+        background-color: $material-button-danger;
+        &.btn-light{
+            background-color: transparent;
+            border: 1px solid $material-button-danger;
+            color: $material-button-danger;
+            &:hover{
+                color: white;
+                background-color: $material-button-danger;
+            }
+        }
+    }
+    &.btn-warning{
+        background-color: $material-button-warning;
+        &.btn-light{
+            background-color: transparent;
+            border: 1px solid $material-button-warning;
+            color: $material-button-warning;
+            &:hover{
+                color: white;
+                background-color: $material-button-warning;
+            }
+        }
+    }
+    &.btn-success{
+        background-color: $material-button-success;
+        &.btn-light{
+            background-color: transparent;
+            border: 1px solid $material-button-success;
+            color: $material-button-success;
+            &:hover{
+                color: white;
+                background-color: $material-button-success;
+            }
+        }
+    }
+    &[disabled]{
+        cursor: not-allowed;
+        box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
+    }
+
+
+
+
+}
