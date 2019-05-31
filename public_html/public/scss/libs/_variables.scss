@@ -1,6 +1,6 @@
 //layout
 $layout-line-height-base: 1.45;
-$layout-container-max-width: 1280;
+$layout-container-max-width: 1200;
 $layout-container-inner-paddings: (
 xl: 40,
 l: 30,
@@ -14,7 +14,7 @@ $media-breakpoints-map: (
 s: 320, //phone up
 m: 600, //tablet portrait up
 l: 900, //tablet landscape up
-xl: 1200 //desktop up
+xl: $layout-container-max-width //desktop up
 );
 
 $media-breakpoints-map-v: (

@@ -1,0 +1,13 @@
+@import "variables.scss";
+
+.advantages{
+    background-color: $color-terciary;
+    @include linear-interpolation-chain(padding-top, $advantages-paddings);
+    @include linear-interpolation-chain(padding-bottom, $advantages-paddings);
+}
+
+.advantages__container{
+    @include container;
+    flex-direction: column;
+    align-items: stretch;
+}

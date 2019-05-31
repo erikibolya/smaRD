@@ -1,10 +1,12 @@
 @import "variables.scss";
 
 .header{
+    z-index: z-index(header);
     position: fixed;
     width: 100%;
     @include linear-interpolation-chain(height, $header-heights);
     @include material-box-shadow(2);
+    background-color: $header-background-color;
 }
 
 .header__container{

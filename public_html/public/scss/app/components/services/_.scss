@@ -1,0 +1,59 @@
+@import "variables.scss";
+
+.services{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.services__item{
+    position: relative;
+    @include fluid-font(s);
+    background-color: $color-secondary;
+    width: 100%;
+    margin-bottom: rem(20);
+    @include material-box-shadow(4);
+    transition: box-shadow 500ms, transform 500ms;
+    &:hover{
+        transform: scale(1.05);
+        @include material-box-shadow(8);
+    }
+
+    @include media(m){
+        width: 49%;
+    }
+
+
+    @include media(l){
+        width: 32%;
+    }
+}
+
+.services__content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.services__container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &--svg{
+        width: auto; 
+    }
+}
+
+.services__heading{
+    color: $color-primary;
+}
+
+.services__paragraph{
+    color: $color-primary;
+}

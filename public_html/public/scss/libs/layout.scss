@@ -1,7 +1,8 @@
 @mixin container() {
     display: flex;
     width: 100%;
-    max-width: rem($layout-container-max-width);
+    $layout-container-largest-padding: map-get($layout-container-inner-paddings,nth(map-keys($layout-container-inner-paddings),1));
+    max-width: rem($layout-container-max-width + $layout-container-largest-padding);
     margin-left: auto;
     margin-right: auto;
     @include linear-interpolation-chain(padding-left,$layout-container-inner-paddings);

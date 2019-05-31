@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700&subset=latin-ext'); //Lora - serif, regular, regular italic and bold
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&subset=latin-ext'); //Roboto - sans-serif, regular
+
+$font-sans-serif: 'Roboto',Verdana, sans-serif;
+$font-serif: 'Lora',Georgia, serif;
+
 //-----z-indexes--
 $z-indexes: (
 menu: 1000,
@@ -9,4 +15,5 @@ header: 500,
 
 $color-primary: $material-color-grey-700;
 $color-secondary: $material-color-white;
-$color-terciary: $material-color-green-300;
+$color-terciary: #20a70c;
+$color-terciary-light: #57c500;

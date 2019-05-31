@@ -1,0 +1,47 @@
+@import "variables.scss";
+
+.overlay{
+    @include container-pl;
+    width: 100;
+    &--hide{
+        display: none;
+        @include media(l){
+            display: flex;
+        }
+    }
+}
+
+.overlay__container{
+    display: flex;
+    background-color: transparentize($color-terciary,0.12);
+    margin-left: auto;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    @include linear-interpolation-chain(width, (xl: 600, l: 500));
+    @include linear-interpolation-chain(padding-left, $overlay-container-paddings);
+    @include linear-interpolation-chain(padding-right, $overlay-container-paddings);
+    height: 100%;
+}
+
+.overlay__heading{
+    width: 100%;
+    margin-bottom: rem(30);
+}
+
+.overlay__link{
+    color: $color-secondary;
+    @include fluid-font(l);
+    background-color: $color-terciary-light;
+    font-weight: 300;
+    padding: 0.6em;
+    text-align: center;
+    display: inline-block;
+    @include material-box-shadow($overlay-shadow-depth);
+    cursor: pointer;
+    transition: box-shadow 500ms;
+    margin-top: rem(15);
+    &:hover{
+        @include material-box-shadow(2 * $overlay-shadow-depth);
+    }
+}

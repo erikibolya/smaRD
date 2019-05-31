@@ -17,6 +17,9 @@
 };
 
 @function linear-interpolation($map,$unit:"vw") {
+    @if (type-of($map) != 'map') {
+        @error "linear-interpolation() $map must be a map";
+    }
     @if (length($map) != 2) {
         @error "linear-interpolation() $map must be exactly 2 values";
     }
@@ -32,12 +35,10 @@
 
         }
     }
-    
-    
     $keys: map-keys($map);
     $x1: nth($keys,1);
     $x2: nth($keys,2);
-    $y1: map-get($map, nth($keys, 1));
+    $y1: map-get($map, nth($keys, 1)); 
     $y2: map-get($map, nth($keys, 2));
     $m: ($y2 - $y1)/($x2 - $x1);
     $b: $y1 - ($m*$x1);
@@ -50,32 +51,61 @@
 }
 
 @mixin linear-interpolation-chain($property, $map, $unit: "vw"){
+    @if (type-of($map) != 'map') {
+        @error "linear-interpolation-chain() $map argument must be a map";
+    }
     @if (length($map) < 2) {
         @error "linear-interpolation-chain() $map argument must have at least 2 values";
     }
     $length: length($map);
     $keys: map-keys($map);
+    $newmap: $map;
     @for $i from $length through 2{
         $key: nth($keys, $i);
         $key_n: nth($keys, $i - 1);
+        $val: map-get($newmap, $key);
+        $val_n: map-get($newmap, $key_n);
+
+        @if (type-of($val_n) == "list"){
+            @if($i == 2){
+                @error "linear-interpolation-chain() $map at border values cannot be list";
+            }@elseif(length($val) == 2){
+                $newmap: map-merge($newmap,($key : first($val)));
+                $val: last($val);
+
+            }@else{
+                @error "linear-interpolation-chain() $map at $key accepts only lists with exactly 2 values";
+            }
+        }
+        @if (type-of($val_n) == "list"){
+            @if(length($val) != 2){
+                @error "linear-interpolation-chain() $map at $key accepts only lists with exactly 2 values";
+            }
+        }
+
+
+
         @if ($i == $length){
             #{$property} : linear-interpolation((
-                $key_n: map-get($map, $key_n),
-                $key: map-get($map, $key)
+                $key_n: map-get($newmap, $key_n),
+                $key: map-get($newmap, $key)
                 ),$unit);
 
         }@else{
+            @if (){
+
+            }
             @include media($key){
                 #{$property} : linear-interpolation((
-                    $key_n: map-get($map, $key_n),
-                    $key: map-get($map, $key)
+                    $key_n: map-get($newmap, $key_n),
+                    $key: map-get($newmap, $key)
                     ),$unit);
             }    
         }
     }
     $key: nth($keys, 1);
     @include media($key){
-        #{$property} : rem(map-get($map, $key));
+        #{$property} : rem(map-get($newmap, $key));
     }    
 
 }

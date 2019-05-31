@@ -1,0 +1,20 @@
+$backgorund-images:(
+xl: (
+src: "../img/carousel-xl.jpg",
+/*retina: "../img/carousel-xl@2x.jpg"*/
+),
+l: (
+src: "../img/carousel-l.jpg",
+/*retina: "../img/carousel-l@2x.jpg"*/
+),
+m: (
+src: "../img/carousel-m.jpg",
+retina: "../img/carousel-m@2x.jpg"
+),
+s: (
+src: "../img/carousel-s.jpg",
+retina: "../img/carousel-s@2x.jpg",
+repeat: no-repeat,
+size: cover,
+position: 30% center
+));
