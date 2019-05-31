@@ -11,6 +11,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="public/css/main.css">
         <link rel="stylesheet" href="public/css/normalize.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
     <body>
         <header class="header">
@@ -35,7 +36,6 @@ and open the template in the editor.
                                 </svg>
                             </label>
                         </div>
-
                         <a class="menu__item" href="#neco">Inteligentní domy</a>
                         <a class="menu__item" href="#neco">Funkce</a>
                         <a class="menu__item" href="#neco">Vzorový dům</a>
@@ -45,7 +45,7 @@ and open the template in the editor.
                 </div>
             </div>
         </header>
-        <main class="main">
+        <main class="main" id="app">
             <section class="carousel">
                 <div class="carousel__container">
                     <div class="overlay overlay--hide">
@@ -63,7 +63,7 @@ and open the template in the editor.
                     </div>
                 </div>
             </section>
-            <section class="advantages">
+            <section id="advantages" class="advantages">
                 <div class="advantages__container">
                     <h2 class="advantages__heading heading heading--2 heading--center">
                         Výhody chytrých domů
@@ -72,7 +72,7 @@ and open the template in the editor.
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus ac leo pretium faucibus. In dapibus augue non sapien. Fusce nibh. In dapibus augue non sapien. Quisque tincidunt scelerisque libero.
                     </div>
                     <div class="services">
-                        <a class="services__item">
+                        <a href="#service_safety" class="services__item">
                             <img class="ratio-keeper" src="public/img/ratio-keepers/5x2.png">
                             <div class="services__content">
                                 <div class="services__container services__container--svg">
@@ -95,7 +95,7 @@ and open the template in the editor.
                                 </div>
                                 <div class="services__container">
                                     <h3 class="services__heading">Bezpečí</h3>
-                                    <div class="services__paragraph paragraph">
+                                    <div class="services__paragraph">
                                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus ac leo pretium faucibus. In dapibus augue non sapien. Fusce nibh.
                                     </div>
                                 </div>
@@ -117,8 +117,40 @@ and open the template in the editor.
                             <img class="ratio-keeper" src="public/img/ratio-keepers/5x2.png">
                         </a>
                     </div>
+                    <div id="service_safety" class="service">
+                        <div class="service__container">
+                            <a href="#advantages" class="service__back">
+                                zpět
+                            </a>
+                            <div class="service__menu">
+
+                            </div>
+                            <div class="service__details">
+                                <div class="service__dtail">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
+        <script type="text/javascript">
+            if (!String.prototype.startsWith) {
+                String.prototype.startsWith = function (searchString, position) {
+                    position = position || 0;
+                    return this.substr(position, searchString.length) === searchString;
+                };
+            }
+            window.addEventListener('hashchange', function () {
+                let hash = window.location.hash.slice(1);
+                if (hash.startsWith("service_")) {
+                    document.body.style.overflow = "hidden";
+                } else {
+                    document.body.style.overflow = "auto";
+                }
+            }, false);
+
+        </script>
     </body>
 </html>

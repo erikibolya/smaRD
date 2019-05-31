@@ -60,54 +60,53 @@
     $length: length($map);
     $keys: map-keys($map);
     $newmap: $map;
-    @for $i from $length through 2{
+    $prev_key: null;
+    $prev_val: null;
+    $first: true;
+    $remap: false;
+    @for $i from $length through 1{
         $key: nth($keys, $i);
-        $key_n: nth($keys, $i - 1);
         $val: map-get($newmap, $key);
-        $val_n: map-get($newmap, $key_n);
 
-        @if (type-of($val_n) == "list"){
-            @if($i == 2){
+        @if (type-of($val) == "list"){
+            @if($prev_val == null or $i == 1){
                 @error "linear-interpolation-chain() $map at border values cannot be list";
             }@elseif(length($val) == 2){
                 $newmap: map-merge($newmap,($key : first($val)));
                 $val: last($val);
-
+                $remap: true;
             }@else{
                 @error "linear-interpolation-chain() $map at $key accepts only lists with exactly 2 values";
             }
         }
-        @if (type-of($val_n) == "list"){
-            @if(length($val) != 2){
-                @error "linear-interpolation-chain() $map at $key accepts only lists with exactly 2 values";
-            }
-        }
-
-
-
-        @if ($i == $length){
-            #{$property} : linear-interpolation((
-                $key_n: map-get($newmap, $key_n),
-                $key: map-get($newmap, $key)
-                ),$unit);
-
-        }@else{
-            @if (){
-
-            }
-            @include media($key){
+        @if ($prev_val != null){
+            @if ($first){
+                $first: false;
                 #{$property} : linear-interpolation((
-                    $key_n: map-get($newmap, $key_n),
-                    $key: map-get($newmap, $key)
+                    $key: $val,
+                    $prev_key: $prev_val
                     ),$unit);
-            }    
-        }
-    }
-    $key: nth($keys, 1);
-    @include media($key){
-        #{$property} : rem(map-get($newmap, $key));
-    }    
 
+            }@else{
+                @include media($prev_key){
+                    #{$property} : linear-interpolation((
+                        $key: $val,
+                        $prev_key: $prev_val
+                        ),$unit);
+                }    
+            }
+        }
+        @if($remap){
+            $remap: false;
+            $val: map-get($newmap, $key);
+
+        }
+        $prev_key: $key;
+        $prev_val: $val;
+    }
+    @include media($prev_key){
+        #{$property} : rem($prev_val);
+    }
 }
 
 /// Remove the unit of a length
