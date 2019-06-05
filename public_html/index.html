@@ -9,8 +9,11 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <link rel="stylesheet" href="public/css/main.css">
         <link rel="stylesheet" href="public/css/normalize.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="public/js/vue-dragscroll.min.js"></script>
     </head>
     <body>
         <header class="header">
@@ -142,14 +145,58 @@ and open the template in the editor.
                             <div class="service__paragraph">
                                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus ac leo pretium faucibus. In dapibus augue non sapien. Fusce nibh.
                             </div>
-
-                            <div class="service__menu">
-
-                            </div>
-                            <div class="service__details">
-                                <div class="service__dtail">
-
+                            <div class="service__menu" ref="labels-1">
+                                <div v-dragscroll class="service__menu__container">
+                                    <label for="service-1-1" class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][1] }">
+                                        Ochrana před zloději
+                                    </label>
+                                    <label for="service-1-2" class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][2] }">
+                                        Prevence
+                                    </label>
+                                    <label for="service-1-3" class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][3] }">
+                                        Ochrana budovy
+                                    </label>
+                                    <label for="service-1-4" class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][4] }">
+                                        Vzdálený dohled
+                                    </label>
+                                    <label for="service-1-5" class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][5] }">
+                                        Přístup do domu
+                                    </label>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="service__details">
+                            <input class="service__controll" id="service-1-1" ref="trigger-1-1" v-on:change="trigger(1,1)" name="service-1" type="radio" checked>
+                            <div class="service__detail">
+                                <div class="service__detail__col">
+                                    <h3 class="service__detail__heading heading heading--3">
+                                        Ochrana před zloději
+                                    </h3>
+                                    <div class="servuce__detail__paragraph">
+                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus ac leo pretium faucibus. In dapibus augue non sapien. Fusce nibh.
+                                    </div>
+                                </div>
+                                <div class="service__detail__col">
+                                    <div class="image" style='background-image: url(public/img/placeholder.jpg)'>
+                                        <img class="ratio-keeper" src="public/img/ratio-keepers/4x3.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="service__controll" id="service-1-2" ref="trigger-1-2" v-on:change="trigger(1,2)" name="service-1" type="radio">
+                            <div class="service__detail">
+                                Test 2
+                            </div>
+                            <input class="service__controll" id="service-1-3" ref="trigger-1-3" v-on:change="trigger(1,3)" name="service-1" type="radio">
+                            <div class="service__detail">
+                                Test 3
+                            </div>
+                            <input class="service__controll" id="service-1-4" ref="trigger-1-4" v-on:change="trigger(1,4)" name="service-1" type="radio">
+                            <div class="service__detail">
+                                Test 4
+                            </div>
+                            <input class="service__controll" id="service-1-5" ref="trigger-1-5" v-on:change="trigger(1,5)" name="service-1" type="radio">
+                            <div class="service__detail">
+                                Test 5
                             </div>
                         </div>
                     </div>
@@ -163,14 +210,83 @@ and open the template in the editor.
                     return this.substr(position, searchString.length) === searchString;
                 };
             }
-            window.addEventListener('hashchange', function () {
+            function documentIsFinishedLoading() {
+                return /^complete|^i|^c/.test(document.readyState);
+            }
+
+            function doWhenDocumentReadyStateIsComplete(doWork) {
+                var intervalId;
+                if (documentIsFinishedLoading()) {
+                    doWork();
+                } else {
+                    intervalId = setInterval(() => {
+                        if (documentIsFinishedLoading()) {
+                            doWork();
+                            clearInterval(intervalId);
+                        }
+                    }, 250);
+                }
+            }
+
+
+            function check_services() {
                 let hash = window.location.hash.slice(1);
                 if (hash.startsWith("service_")) {
                     document.body.style.overflow = "hidden";
                 } else {
                     document.body.style.overflow = "auto";
                 }
-            }, false);
+            }
+
+            var menus = document.getElementsByClassName("service__menu");
+            var length = menus.length;
+            function check_services_menu() {
+                for (var i = 0; i < length; i++) {
+                    var l1 = menus[i].offsetWidth;
+                    var l2 = menus[i].firstElementChild.scrollWidth;
+                    console.log(l1 + " vs " + l2);
+                    if (l1 > l2) {
+                        menus[i].classList.add('service__menu--center');
+                    } else {
+                        menus[i].classList.remove('service__menu--center');
+                    }
+                }
+            }
+
+            doWhenDocumentReadyStateIsComplete(() => {
+                check_services_menu();
+            });
+
+            check_services();
+
+            window.addEventListener('hashchange', check_services, false);
+            window.addEventListener('resize', check_services_menu, false);
+
+
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    labels: {
+                        1: {
+                            1: true,
+                            2: false,
+                            3: false,
+                            4: false,
+                            5: false
+                        }
+                    }
+                },
+                methods: {
+                    trigger: function (i, j) {
+                        for (var item in this.labels[i]) {
+                            this.labels[i][item] = false;
+                        }
+                        this.labels[i][j] = true;
+                    }
+                }
+
+            }
+            );
 
         </script>
     </body>

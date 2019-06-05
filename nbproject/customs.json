@@ -1,0 +1,10 @@
+{
+    "elements": {},
+    "attributes": {
+        "v-bind:class": {},
+        "v-dragscroll": {
+            "context": "div"
+        },
+        "ref": {}
+    }
+}

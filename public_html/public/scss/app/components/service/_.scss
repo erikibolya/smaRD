@@ -1,6 +1,20 @@
 @import "variables.scss";
 
 
+
+#service_safety:target{
+    display: flex;
+}
+
+.service__controll{
+    display: none;
+    &:checked{
+        + .service__detail{
+            display: flex;
+        }
+    }
+}
+
 .service{
     z-index: z-index(service);
     display: none;
@@ -9,15 +23,101 @@
     top: 0;
     left: 0;
     width: 150vw;
-    min-height: 100vh;
+    height: 100vh;
+    padding-right: 50vw;
     background-color: $service-background-color;
+    overflow: auto;
+    flex-direction: column;
 }
 
 .service__container{
-    width: 100vw;
+    @include container;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service__back{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.service__heading{
+    width: 100%;
+    color: $service-heading-color;
+}
+
+.service__paragraph{
+    width: 100%;
+    text-align: center;
+    @include linear-interpolation-chain(margin-bottom,$service-paragraph-margins);
+}
+
+.service__menu{
+    @include container;
+    @include linear-interpolation-chain(font-size,(xl:60,s:40));
+    height: 1em;
+    overflow: hidden;
+    justify-content: flex-start;
+
+    &--center{
+        justify-content: center;
+    }
+}
+
+.service__menu__container{
+    height: 2em;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+.service__menu__item{
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    width: auto;
+    cursor: pointer;
+    font-size: 0.4em;
+    height: 2em;
+    padding: 0 1em;
+
+    transition-property: background-color, color;
+    transition-duration: 500ms;
+    /*padding: .5em 1em;*/
+
+    &--active,&:hover{
+        color: $service-menu-item-active-color;
+        background-color: $service-menu-item-active-background-color;
+    }
+}
+
+.service__details{
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    background-color: $service-details-background-color;
+    @include linear-interpolation-chain(padding-top, $service-details-vertical-paddings);
+    @include linear-interpolation-chain(padding-bottom, $service-details-vertical-paddings);
+}
+
+.service__detail{
+    @include container;
+    display: none;
+    align-items: stretch;
+}
+
+.service__detail__col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
 }
 
 
-#service_safety:target{
-    display: block;
+.service__detail__heading{
+    color: $service-detail-heading-color;
 }

@@ -3,7 +3,8 @@
 
 .svg{
     display: block;
-
+    @include linear-interpolation-chain(width, $svg-sizes);
+     @include linear-interpolation-chain(height, $svg-sizes);
 
 
     &--absolute{
