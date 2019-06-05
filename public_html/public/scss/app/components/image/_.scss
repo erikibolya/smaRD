@@ -1,6 +1,7 @@
 @import "variables.scss";
 
 .image{
+    width: 100%;
     background-size: cover;
     @include material-box-shadow(8);
 }

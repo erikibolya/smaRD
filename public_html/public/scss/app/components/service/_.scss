@@ -3,7 +3,7 @@
 
 
 #service_safety:target{
-    display: flex;
+    transform: translateY(0);
 }
 
 .service__controll{
@@ -17,7 +17,7 @@
 
 .service{
     z-index: z-index(service);
-    display: none;
+    display: flex;
     background-color: red;
     position: fixed;
     top: 0;
@@ -26,8 +26,12 @@
     height: 100vh;
     padding-right: 50vw;
     background-color: $service-background-color;
+    padding-top: rem(40);
     overflow: auto;
     flex-direction: column;
+    transform: translateY(-100%);
+    transition-property: transform;
+    transition-duration: 1000ms;
 }
 
 .service__container{
@@ -50,15 +54,19 @@
 
 .service__paragraph{
     width: 100%;
+    max-width: rem(800);
     text-align: center;
-    @include linear-interpolation-chain(margin-bottom,$service-paragraph-margins);
+    @include fluid-font(s);
+
+    font-weight: 300;
+    margin-bottom: 4.5em; 
 }
 
 .service__menu{
     width: 100%;
     display: flex;
-    @include linear-interpolation-chain(font-size,(xl:60,s:40));
-    height: 1em;
+    @include linear-interpolation-chain(font-size,(xl:19,s:12));
+    height: 2em;
     overflow: hidden;
     justify-content: flex-start;
 
@@ -68,7 +76,7 @@
 }
 
 .service__menu__container{
-    height: 2em;
+    height: 4em;
     overflow-x: auto;
     overflow-y: hidden;
     display: flex;
@@ -82,13 +90,16 @@
     flex: 0 0 auto;
     width: auto;
     cursor: pointer;
-    font-size: 0.4em;
-    height: 2.5em;
-    padding: 0 1em;
+    height: 2em;
+    padding: 0em 2em;
 
     transition-property: background-color, color;
     transition-duration: 500ms;
     /*padding: .5em 1em;*/
+
+    background-color: $service-menu-item-background-color;
+    color: $service-menu-item-color;
+
 
     &--active,&:hover{
         color: $service-menu-item-active-color;
@@ -108,17 +119,23 @@
 .service__detail{
     @include container;
     display: none;
-    align-items: stretch;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .service__detail__col{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
+    align-items: flex-start;
+    width: 48%;
 }
 
 
 .service__detail__heading{
     color: $service-detail-heading-color;
+}
+
+.service__detail__paragraph{
+    color: $service-detail-paragraph-color;
 }

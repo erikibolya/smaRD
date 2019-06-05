@@ -6,9 +6,10 @@ xl: 60,
 s: 40
 );
 
-
-$service-menu-item-active-background-color: $color-terciary;
-$service-menu-item-active-color: $color-secondary;
+$service-menu-item-background-color: $color-terciary;
+$service-menu-item-color: $color-secondary;
+$service-menu-item-active-background-color: $color-primary-light;
+$service-menu-item-active-color: $color-primary;
 
 $service-details-background-color: $color-primary-light;
 
@@ -19,3 +20,4 @@ s: 40
 );
 
 $service-detail-heading-color: $color-terciary;
+$service-detail-paragraph-color: $color-primary;
