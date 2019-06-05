@@ -1,0 +1,35 @@
+@import "variables.scss";
+
+.loxone{
+    background-color: $loxone-background-color;
+    @include linear-interpolation-chain(padding-bottom, $loxone-bottom-paddings);
+    @include linear-interpolation-chain(padding-top, $loxone-top-paddings);
+}
+
+.loxone__container{
+    @include container;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loxone__paragraph{
+    color: $loxone-color;
+    font-weight: 300;
+}
+
+.loxone__link{
+    color: $color-secondary;
+    @include fluid-font(m);
+    background-color: $color-terciary;
+    font-weight: 300;
+    padding: 0.6em 1em;
+    text-align: center;
+    display: inline-block;
+    @include material-box-shadow($overlay-shadow-depth);
+    cursor: pointer;
+    transition: box-shadow 500ms;
+    margin-top: rem(15);
+    &:hover{
+        @include material-box-shadow(2 * $overlay-shadow-depth);
+    }
+}

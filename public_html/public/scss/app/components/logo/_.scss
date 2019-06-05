@@ -1,7 +1,6 @@
 @import "variables.scss";
 
 .logo{
-    background-color: black;
     @include linear-interpolation-chain(width,$logo-widths);
     @include linear-interpolation-chain(height,$logo-heights);
 }

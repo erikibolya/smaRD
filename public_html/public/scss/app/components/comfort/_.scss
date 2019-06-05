@@ -1,0 +1,33 @@
+@import "variables.scss";
+
+.comfort{
+    background-color: $comfort-background-color;
+    @include linear-interpolation-chain(padding-top, $comfort-paddings);
+    @include linear-interpolation-chain(margin-bottom, $comfort-margins);
+}
+
+.comfort__container{
+    @include container;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.comfort__heading{
+    color: $comfort-color;
+}
+
+.comfort__paragraph{
+    color: $comfort-color;
+    font-weight: 300;
+    margin-bottom: 4em;
+}
+
+.comfort__svg{
+    display: block;
+    width: 80%;
+    margin: auto;
+    max-width: 320px;
+    @include material-box-shadow(16);
+    /*    @include linear-interpolation-chain(width, $comfort-svg-sizes);
+        @include linear-interpolation-chain(height, $comfort-svg-sizes);*/
+}

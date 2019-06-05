@@ -55,7 +55,8 @@
 }
 
 .service__menu{
-    @include container;
+    width: 100%;
+    display: flex;
     @include linear-interpolation-chain(font-size,(xl:60,s:40));
     height: 1em;
     overflow: hidden;
@@ -82,7 +83,7 @@
     width: auto;
     cursor: pointer;
     font-size: 0.4em;
-    height: 2em;
+    height: 2.5em;
     padding: 0 1em;
 
     transition-property: background-color, color;
