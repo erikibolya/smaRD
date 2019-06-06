@@ -588,8 +588,12 @@ body {
   overflow: hidden;
   padding-right: 1em; }
 
-#service_safety:target {
-  transform: translateY(0); }
+#advantages:target ~ .service {
+  transition-delay: 1000ms, 0s; }
+
+.service:target {
+  transform: translateY(0);
+  opacity: 1; }
 
 .service__controll {
   display: none; }
@@ -609,8 +613,10 @@ body {
   overflow: auto;
   flex-direction: column;
   transform: translateY(-100%);
-  transition-property: transform;
-  transition-duration: 1000ms; }
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0s, 1000ms;
+  transition-delay: 0s, 0s; }
 
 .service__container {
   width: 100vw;
@@ -627,7 +633,8 @@ body {
   padding-left: calc(3.5714285714vw - 0.0892857143rem);
   padding-right: calc(3.5714285714vw - 0.0892857143rem);
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  padding-bottom: 2.5rem; }
   @media (min-width: 37.5em) {
     .service__header {
       padding-left: calc(3.3333333333vw + 0rem); } }
@@ -669,17 +676,35 @@ body {
       font-size: 1.375rem; } }
 
 .service__menu {
+  position: relative;
   z-index: 10;
   display: flex;
   width: 100%;
   max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
-  font-size: 1.1875rem;
+  font-size: 1.375rem;
   justify-content: flex-start;
+  margin-top: -2em;
   margin-bottom: -2em; }
   .service__menu--center {
     justify-content: center; }
+
+.service__menu__scrollarrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2em;
+  width: 2em;
+  background-color: rgba(255, 255, 255, 0.7); }
+  .service__menu__scrollarrow:after {
+    content: ">";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto; }
 
 .service__menu__container {
   height: 4em;
@@ -696,17 +721,20 @@ body {
   width: auto;
   cursor: pointer;
   height: 2em;
-  padding: 0em 2em;
+  padding: 0em 1.2em;
   transition-property: background-color, color;
   transition-duration: 500ms;
   /*padding: .5em 1em;*/
   background-color: #20a70c;
   color: #ffffff; }
+  .service__menu__item:not(:last-child) {
+    margin-right: 1em; }
   .service__menu__item--active, .service__menu__item:hover {
     color: #616161;
     background-color: #ECECEC; }
 
 .service__details {
+  position: relative;
   z-index: 20;
   display: flex;
   flex-grow: 1;

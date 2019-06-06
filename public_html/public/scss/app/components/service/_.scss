@@ -1,9 +1,13 @@
 @import "variables.scss";
 
 
+#advantages:target ~ .service{
+    transition-delay: 1000ms, 0s;
+}
 
-#service_safety:target{
+.service:target{
     transform: translateY(0);
+    opacity: 1;
 }
 
 .service__controll{
@@ -28,8 +32,10 @@
     overflow: auto;
     flex-direction: column;
     transform: translateY(-100%);
-    transition-property: transform;
-    transition-duration: 1000ms;
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: 0s, 1000ms;
+    transition-delay: 0s, 0s;
 }
 
 .service__container{
@@ -43,6 +49,7 @@
     @include container;
     flex-direction: column;
     align-items: center;
+    padding-bottom: rem(40);
 }
 
 .service__back{
@@ -68,14 +75,34 @@
 }
 
 .service__menu{
+    position: relative;
     z-index: z-index(service-menu);
     @include container-pl;
-    font-size: rem(19);
+    font-size: rem(22);
     justify-content: flex-start;
+    margin-top: -2em;
     margin-bottom: -2em;
 
     &--center{
         justify-content: center;
+    }
+}
+
+.service__menu__scrollarrow{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2em;
+    width: 2em;
+    background-color: transparentize($color-secondary,0.3);
+    &:after{
+        content: ">";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
     }
 }
 
@@ -95,7 +122,8 @@
     width: auto;
     cursor: pointer;
     height: 2em;
-    padding: 0em 2em;
+    padding: 0em 1.2em;
+
 
     transition-property: background-color, color;
     transition-duration: 500ms;
@@ -103,7 +131,9 @@
 
     background-color: $service-menu-item-background-color;
     color: $service-menu-item-color;
-
+    &:not(:last-child){
+        margin-right: 1em;
+    }
 
     &--active,&:hover{
         color: $service-menu-item-active-color;
@@ -112,6 +142,7 @@
 }
 
 .service__details{
+    position: relative;
     z-index: z-index(service-details);
     display: flex;
     flex-grow: 1;
