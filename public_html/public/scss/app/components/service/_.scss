@@ -28,7 +28,7 @@
     width: 150vw;
     height: 100vh;
     background-color: $service-background-color;
-    padding-top: rem(40);
+    padding-top: rem(80);
     overflow: auto;
     flex-direction: column;
     transform: translateY(-100%);
@@ -36,6 +36,9 @@
     transition-property: transform, opacity;
     transition-duration: 0s, 1000ms;
     transition-delay: 0s, 0s;
+    @include media(m){
+        padding-top: rem(40);
+    }
 }
 
 .service__container{
@@ -55,8 +58,22 @@
 .service__back{
     display: block;
     position: fixed;
-    top: 0;
-    left: 0;
+    top: rem(10);
+    width: 90vw;
+    padding: 1em 2em;
+    font-size: rem(19);
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: $color-terciary;
+    color: $color-secondary;
+
+
+    @include media(m){
+        width: auto;
+        left: rem(10);
+        padding: 1em 2em;
+    }
 }
 
 .service__heading{
@@ -88,23 +105,6 @@
     }
 }
 
-.service__menu__scrollarrow{
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 2em;
-    width: 2em;
-    background-color: transparentize($color-secondary,0.3);
-    &:after{
-        content: ">";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        margin: auto;
-    }
-}
 
 .service__menu__container{
     height: 4em;
@@ -132,7 +132,7 @@
     background-color: $service-menu-item-background-color;
     color: $service-menu-item-color;
     &:not(:last-child){
-        margin-right: 1em;
+        margin-right: 0.5em;
     }
 
     &--active,&:hover{
@@ -157,6 +157,7 @@
     display: none;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .service__detail__col{
@@ -164,7 +165,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 48%;
+    width: 100%;
+
+    @include media(l){
+        width: 48%;
+    }
 }
 
 

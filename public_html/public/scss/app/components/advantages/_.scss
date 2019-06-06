@@ -1,9 +1,12 @@
 @import "variables.scss";
 
 .advantages{
-    background-color: $color-terciary;
     @include linear-interpolation-chain(padding-top, $advantages-paddings);
     @include linear-interpolation-chain(padding-bottom, $advantages-paddings);
+    background-image: url('../img/bg_navi.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .advantages__container{
