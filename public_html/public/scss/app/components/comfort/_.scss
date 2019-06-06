@@ -27,9 +27,9 @@
 
 .comfort__svg{
     display: block;
-    width: 80%;
+    width: 65%;
     margin: auto;
-    max-width: 320px;
+    max-width: 260px;
     @include material-box-shadow(16);
     /*    @include linear-interpolation-chain(width, $comfort-svg-sizes);
         @include linear-interpolation-chain(height, $comfort-svg-sizes);*/

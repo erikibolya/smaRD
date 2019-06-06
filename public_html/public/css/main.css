@@ -275,26 +275,10 @@ body {
   display: flex;
   width: 100%;
   height: 100%;
-  background-image: url("../img/carousel-s.jpg");
+  background-image: url("../img/carousel3600.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 30% center; }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-    .carousel__container {
-      background-image: url("../img/carousel-s@2x.jpg"); } }
-  @media (min-width: 37.5em) {
-    .carousel__container {
-      background-image: url("../img/carousel-m.jpg"); } }
-  @media only screen and (min-width: 37.5em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 37.5em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 37.5em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 37.5em) and (min-device-pixel-ratio: 2), only screen and (min-width: 37.5em) and (min-resolution: 192dpi), only screen and (min-width: 37.5em) and (min-resolution: 2dppx) {
-    .carousel__container {
-      background-image: url("../img/carousel-m@2x.jpg"); } }
-
-  @media (min-width: 56.25em) {
-    .carousel__container {
-      background-image: url("../img/carousel-l.jpg"); } }
-  @media (min-width: 75em) {
-    .carousel__container {
-      background-image: url("../img/carousel-xl.jpg"); } }
 
 .overlay {
   display: flex;
@@ -352,6 +336,19 @@ body {
   .overlay__link:hover {
     box-shadow: 0 0.4701086957rem 0.6766304348rem -0.285326087rem rgba(0, 0, 0, 0.2), 0 1rem 1.5706521739rem 0.1222826087rem rgba(0, 0, 0, 0.14), 0 0.410326087rem 1.8967391304rem 0.3043478261rem rgba(0, 0, 0, 0.12); }
 
+.overlay__arrow {
+  width: 12.5rem;
+  align-self: center;
+  margin-top: 3.75rem;
+  animation: float 2s ease-in-out infinite; }
+
+@keyframes float {
+  0% {
+    transform: translatey(0rem); }
+  50% {
+    transform: translatey(-1.25rem); }
+  100% {
+    transform: translatey(0rem); } }
 .advantages {
   padding-top: calc(4.5454545455vw + 0.3409090909rem);
   padding-bottom: calc(4.5454545455vw + 0.3409090909rem);
@@ -454,20 +451,20 @@ body {
 
 .comfort__svg {
   display: block;
-  width: 80%;
+  width: 65%;
   margin: auto;
-  max-width: 320px;
+  max-width: 260px;
   box-shadow: 0 0.4701086957rem 0.6766304348rem -0.285326087rem rgba(0, 0, 0, 0.2), 0 1rem 1.5706521739rem 0.1222826087rem rgba(0, 0, 0, 0.14), 0 0.410326087rem 1.8967391304rem 0.3043478261rem rgba(0, 0, 0, 0.12);
   /*    @include linear-interpolation-chain(width, $comfort-svg-sizes);
       @include linear-interpolation-chain(height, $comfort-svg-sizes);*/ }
 
 .loxone {
   background-color: #ECECEC;
-  padding-bottom: calc(2.2727272727vw + 2.0454545455rem);
+  padding-bottom: calc(2.2727272727vw + 4.5454545455rem);
   padding-top: calc(9.0909090909vw + 3.1818181818rem); }
   @media (min-width: 75em) {
     .loxone {
-      padding-bottom: 3.75rem; } }
+      padding-bottom: 6.25rem; } }
   @media (min-width: 75em) {
     .loxone {
       padding-top: 10rem; } }

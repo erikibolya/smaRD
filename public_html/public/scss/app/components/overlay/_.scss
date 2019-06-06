@@ -45,3 +45,22 @@
         @include material-box-shadow(2 * $overlay-shadow-depth);
     }
 }
+
+.overlay__arrow{
+    width: rem(200);
+    align-self: center;
+    margin-top: rem(60);
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(rem(0));
+    }
+    50% {
+        transform: translatey(rem(-20));
+    }
+    100% {
+        transform: translatey(rem(0));
+    }
+}
