@@ -6,7 +6,9 @@ $font-serif: 'Lora',Georgia, serif;
 
 //-----z-indexes--
 $z-indexes: (
-service: 2000, 
+service: 2000,
+service-menu: 10,
+service-details: 20,
 menu: 1000,
 menu-background:10,
 menu-container: 20,

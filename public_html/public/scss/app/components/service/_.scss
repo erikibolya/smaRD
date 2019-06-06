@@ -17,14 +17,12 @@
 
 .service{
     z-index: z-index(service);
-    display: flex;
     background-color: red;
     position: fixed;
     top: 0;
     left: 0;
     width: 150vw;
     height: 100vh;
-    padding-right: 50vw;
     background-color: $service-background-color;
     padding-top: rem(40);
     overflow: auto;
@@ -35,6 +33,13 @@
 }
 
 .service__container{
+    width: 100vw;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service__header{
     @include container;
     flex-direction: column;
     align-items: center;
@@ -63,12 +68,11 @@
 }
 
 .service__menu{
-    width: 100%;
-    display: flex;
-    @include linear-interpolation-chain(font-size,(xl:19,s:12));
-    height: 2em;
-    overflow: hidden;
+    z-index: z-index(service-menu);
+    @include container-pl;
+    font-size: rem(19);
     justify-content: flex-start;
+    margin-bottom: -2em;
 
     &--center{
         justify-content: center;
@@ -108,6 +112,7 @@
 }
 
 .service__details{
+    z-index: z-index(service-details);
     display: flex;
     flex-grow: 1;
     width: 100%;
