@@ -340,24 +340,33 @@ and open the template in the editor.
                         </div>
 
                     </div>
-                    <div class="service__menu" ref="labels-1">
-                        <div v-dragscroll v-on:dragscrollstart="dragStart($event)" v-on:dragscrollend="dragEnd($event)" class="service__menu__container">
-                            <label for="service-1-1" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][1] }">
-                                Ochrana před zloději
-                            </label>
-                            <label for="service-1-2" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][2] }">
-                                Prevence
-                            </label>
-                            <label for="service-1-3" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][3] }">
-                                Ochrana budovy
-                            </label>
-                            <label for="service-1-4" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][4] }">
-                                Vzdálený dohled
-                            </label>
-                            <label for="service-1-5" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][5] }">
-                                Přístup do domu
-                            </label>
+                    <div class="service__menu service__menu--overflowing" ref="labels-1">
+                        <div v-dragscroll v-on:dragscrollstart="dragStart($event)" v-on:dragscrollend="dragEnd($event)"  class="service__menu__wrapper">
+                            <div class="service__menu__container">
+                                <label for="service-1-1" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][1] }">
+                                    Ochrana před zloději
+                                </label>
+                                <label for="service-1-2" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][2] }">
+                                    Prevence
+                                </label>
+                                <label for="service-1-3" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][3] }">
+                                    Ochrana budovy
+                                </label>
+                                <label for="service-1-4" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][4] }">
+                                    Vzdálený dohled
+                                </label>
+                                <label for="service-1-5" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[1][5] }">
+                                    Přístup do domu
+                                </label>
+                            </div>
                         </div>
+                        <svg class="service__menu__arrow service__menu__arrow--left" viewBox="0 0 53.789 97.124">
+                        <polygon class="service__menu__arrow__path" points="48.564,97.124 0,48.563 48.564,0 53.789,5.225 10.452,48.563 53.789,91.899"/>
+                        </svg>
+                        <svg class="service__menu__arrow service__menu__arrow--right" viewBox="0 0 53.789 97.124">
+                        <polygon class="service__menu__arrow__path" points="5.225,97.124 53.789,48.563 5.225,0 0,5.225 43.337,48.563 0,91.899 	"/>
+                        </svg>
+
                     </div>
                     <div class="service__details">
                         <input class="service__controll" id="service-1-1" ref="trigger-1-1" v-on:change="trigger(1,1)" name="service-1" type="radio" checked>
@@ -473,10 +482,9 @@ and open the template in the editor.
             function check_services() {
                 let hash = window.location.hash.slice(1);
                 if (hash.startsWith("service_")) {
-                    document.body.style.overflow = "hidden";
-                    check_services_menu();
+                    document.body.classList.add('body--lock');
                 } else {
-                    document.body.style.overflow = "auto";
+                    document.body.classList.remove('body--lock');
                 }
             }
 
@@ -484,13 +492,15 @@ and open the template in the editor.
             var length = menus.length;
             function check_services_menu() {
                 for (var i = 0; i < length; i++) {
-                    var l1 = menus[i].offsetWidth;
-                    var l2 = menus[i].firstElementChild.scrollWidth;
+                    var l1 = menus[i].firstElementChild.offsetWidth;
+                    var l2 = menus[i].firstElementChild.firstElementChild.scrollWidth;
                     console.log(l1 + " vs " + l2);
                     if (l1 > l2) {
                         menus[i].classList.add('service__menu--center');
+                        menus[i].classList.remove('service__menu--overflowing');
                     } else {
                         menus[i].classList.remove('service__menu--center');
+                        menus[i].classList.add('service__menu--overflowing');
                     }
                 }
             }

@@ -94,50 +94,97 @@
 .service__menu{
     position: relative;
     z-index: z-index(service-menu);
-    @include container-pl;
+    display: block;
+    width: 100%;
+    max-width: rem($layout-container-max-width);
+    margin-left: auto;
+    margin-right: auto;
     font-size: rem(22);
-    justify-content: flex-start;
-    margin-top: -2em;
     margin-bottom: -2em;
 
+
+    &--overflowing{
+        padding: 0 2em;
+    }
+
     &--center{
-        justify-content: center;
+        text-align: center;
     }
 }
 
+.service__menu__arrow{
+    position: absolute;
+    top: rem(8);
+    display: block;
+    width: rem(15);
+    /*height: rem(36);*/
+
+    @at-root .service__menu--center &{
+        display: none;
+    }
+
+    &--left{
+        left: rem(10); 
+    }
+
+    &--right{
+        right: rem(10); 
+    }
+
+    &--disabled{
+        &__path{
+            fill: $color-primary-light;
+        }
+    }
+
+    &__path{
+        fill: $color-terciary;
+    }
+}
+
+
+.service__menu__wrapper{
+    width: auto;
+    max-width: 100%;
+    display: block;
+    overflow: auto;
+}
 
 .service__menu__container{
     height: 4em;
-    overflow-x: auto;
-    overflow-y: hidden;
-    display: flex;
+    display: inline-flex;
     flex-wrap: nowrap;
-    align-items: flex-start;
+    padding: 0 2em;
+
+    @at-root .service__menu--overflowing &{
+        padding: 0;
+    }
+
+}
+
+.service__menu__label-wrapper{
+
+    width: auto;
 }
 
 .service__menu__item{
-    display: flex;
-    align-items: center;
-    flex: 0 0 auto;
     width: auto;
+    display: inline-flex;
+    white-space: nowrap;
+    align-items: center;
     cursor: pointer;
     height: 2em;
-    padding: 0em 1.2em;
-
-
-    transition-property: background-color, color;
-    transition-duration: 500ms;
-    /*padding: .5em 1em;*/
-
-    background-color: $service-menu-item-background-color;
+    transition-property: border-color;
+    transition-duration: 300ms;
     color: $service-menu-item-color;
+    border-bottom: rem(2) solid transparent;
+
     &:not(:last-child){
-        margin-right: 0.5em;
+        margin-right: 2em;
     }
 
     &--active,&:hover{
-        color: $service-menu-item-active-color;
-        background-color: $service-menu-item-active-background-color;
+        border-color: $color-terciary;
     }
 }
 

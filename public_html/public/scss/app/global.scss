@@ -12,16 +12,16 @@ html{
 }
 
 body{ 
+    position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     color: $color-primary;
 }
 
-.test{
-    width: 100%;
-    height: 1200px;
-    background-color: white;
+
+.body--lock{
+    overflow: hidden;
 }
 
 
