@@ -9,6 +9,11 @@
     }
 }
 
+.menu{
+    display: flex;
+    align-items: center;
+}
+
 .menu__label{
     display: block;
     cursor: pointer;
@@ -32,9 +37,8 @@
     align-items: center;
 
     @include media($menu-breakpoint){
-        display: block;
+        flex-direction: row;
         width: auto;
-        height: auto;
         transform: translateX(0);
         position: relative;
     }
@@ -55,7 +59,9 @@
 }
 
 .menu__item{
-
+    display: inline-flex;
+    align-items: center;
+    position: relative;
     text-decoration: none;
     color: $color-primary;
     @include fluid-font(l);
@@ -67,8 +73,10 @@
 
 
     @include media($menu-breakpoint){
+        height: 100%;
         @include fluid-font(xs);
         &:not(:last-of-type){
+            margin-bottom: 0;
             margin-right: $menu-item-spacing-desktop;
         }
 
@@ -77,5 +85,24 @@
     &:hover,&--active{
         color: $color-terciary;
     }
+}
+
+.menu__item--line{
+    width: 100%;
+    height: 0.2em;
+    background-color: $color-terciary;
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    transform: scale(0,1);
+    transform-origin: center center;
+    transition: transform 500ms;
+    @at-root .menu__item--active &{
+        transform: scale(1,1);  
+    }
+    @at-root .menu__item:hover &{
+        transform: scale(1,1); 
+    }
+
 }
 

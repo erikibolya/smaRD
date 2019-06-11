@@ -2,7 +2,6 @@
 
 .overlay{
     @include container-pl;
-    width: 100;
     &--hide{
         display: none;
         @include media(l){

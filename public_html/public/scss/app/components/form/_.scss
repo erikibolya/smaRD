@@ -1,0 +1,82 @@
+@import "variables.scss";
+.form{
+    display: flex;
+    justify-content: space-between;
+    @include fluid-font(xs);
+    margin-bottom: rem(60);
+    flex-wrap: wrap;
+}
+.form__col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1em;
+
+    @include media(l){
+        align-items: flex-start;
+        width: 48%;
+    }
+    &--full{
+        width: 100%;
+    }
+
+}
+
+.form__input{
+    width: 100%;
+    padding: 1em;
+    outline: none;
+    color: $color-terciary;
+    border: none;
+    @include material-box-shadow(4);
+    @include border-radius(rem(3));
+    transition: box-shadow 500ms;
+
+    &:not(:last-child){
+        margin-bottom: 1em;
+    }
+
+    &:focus{
+        @include material-box-shadow(8);
+    }
+}
+
+.form__textarea{
+    width: 100%;
+    padding: 1em;
+    resize: none;
+    outline: none;
+    border: none;
+    color: $color-terciary;
+    @include material-box-shadow(4);
+    @include border-radius(rem(3));
+    transition: box-shadow 500ms;
+
+    @include media(m){
+        height: 100%;
+    }
+    &:focus{
+        @include material-box-shadow(8);
+    }
+}
+
+.form__button{
+    color: $color-secondary;
+    @include fluid-font(m);
+    background-color: $color-terciary-light;
+    border: none;
+    outline: none;
+    font-weight: 300;
+    padding: 0.6em;
+    text-align: center;
+    cursor: pointer;
+    @include material-box-shadow(8);
+    transition: box-shadow 500ms;
+    align-self: center;
+    margin-top: rem(60);
+
+    &:hover{
+        @include material-box-shadow(16);
+    }
+}

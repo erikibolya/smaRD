@@ -1,7 +1,10 @@
 @import "variables.scss";
 
 .loxone{
-    background-color: $loxone-background-color;
+    background-image: url(../img/BG.svg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
     @include linear-interpolation-chain(padding-bottom, $loxone-bottom-paddings);
     @include linear-interpolation-chain(padding-top, $loxone-top-paddings);
 }
