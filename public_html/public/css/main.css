@@ -631,11 +631,11 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 150vw;
+  width: 100vw;
   height: 100vh;
   background-color: #ffffff;
   padding-top: 5rem;
-  overflow: hidden;
+  overflow: auto;
   flex-direction: column;
   transform: translateY(-100%);
   opacity: 0;
@@ -650,8 +650,7 @@ body {
   width: 100vw;
   min-height: 100%;
   display: flex;
-  flex-direction: column;
-  overflow: auto; }
+  flex-direction: column; }
 
 .service__header {
   display: flex;
