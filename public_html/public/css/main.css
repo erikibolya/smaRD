@@ -631,11 +631,12 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: #ffffff;
   padding-top: 5rem;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   flex-direction: column;
   transform: translateY(-100%);
   opacity: 0;
@@ -647,7 +648,7 @@ body {
       padding-top: 2.5rem; } }
 
 .service__container {
-  width: 100vw;
+  width: 100%;
   min-height: 100%;
   display: flex;
   flex-direction: column; }
@@ -724,6 +725,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-size: 1.375rem;
+  height: 4em;
   margin-bottom: -2em; }
   .service__menu--overflowing {
     padding: 0 2em; }
@@ -750,12 +752,14 @@ body {
 .service__menu__wrapper {
   width: auto;
   max-width: 100%;
+  height: 100%;
   display: block;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch; }
 
 .service__menu__container {
-  height: 4em;
+  height: 100%;
   display: inline-flex;
   flex-wrap: nowrap;
   padding: 0 2em; }
