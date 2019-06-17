@@ -16,7 +16,7 @@ and open the template in the editor.
         <script src="https://unpkg.com/scrollbooster@1.1.0/dist/scrollbooster.min.js"></script>
     </head>
     <body>
-        <header class="header">
+        <header id="header" class="header">
             <div class="header__container">
                 <div class="header__logo">
                     <svg class="logo" viewBox="0 0 1101.491 282.834" >
@@ -181,7 +181,6 @@ and open the template in the editor.
                     </g>
                     <circle class="st7" cx="828.345" cy="175.371" r="14.133"/>
                     </svg>
-
                 </div>
                 <div class="header__menu menu">
                     <input type="checkbox" id="menu-trigger">
@@ -198,17 +197,17 @@ and open the template in the editor.
                                 </svg>
                             </label>
                         </div>
-                        <a class="menu__item menu__item--active" href="#neco">Inteligentní domy<span class="menu__item--line"></span></a>
-                        <a class="menu__item" href="#neco">Funkce<span class="menu__item--line"></span></a>
-                        <a class="menu__item" href="#neco">Vzorový dům<span class="menu__item--line"></span></a>
-                        <a class="menu__item" href="#neco">Kontakt<span class="menu__item--line"></span></a>
+                        <a class="menu__item menu__item--active" href="#home">Inteligentní domy<span class="menu__item--line"></span></a>
+                        <a class="menu__item" href="#advantages">Výhody<span class="menu__item--line"></span></a>
+                        <a class="menu__item" href="#showroom">Vzorový dům<span class="menu__item--line"></span></a>
+                        <a class="menu__item" href="#contacts">Kontakt<span class="menu__item--line"></span></a>
                     </div>
 
                 </div>
             </div>
         </header>
         <main class="main" id="app">
-            <section class="carousel">
+            <section id="home" class="carousel">
                 <div class="carousel__container">
                     <div class="overlay overlay--hide">
                         <div class="overlay__container">
@@ -306,7 +305,7 @@ and open the template in the editor.
                                 <div class="services__container">
                                     <h3 class="services__heading">Bezpečí</h3>
                                     <div class="services__paragraph">
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus ac leo pretium faucibus. In dapibus augue non sapien. Fusce nibh.
+                                        Bezpečí je jednou z nejhodnotnějších věcí, které můžeme udělat pro sebe i své blízké. Pokud se budete cítit v domě bezpečně, můžete si užívat čas s rodinou, věnovat se vlastním zájmům, koníčkům, odpočívat, …
                                     </div>
                                 </div>
                             </div>
@@ -333,7 +332,7 @@ and open the template in the editor.
                                 <div class="services__container">
                                     <h3 class="services__heading">Osvětlení</h3>
                                     <div class="services__paragraph">
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus ac leo pretium faucibus. In dapibus augue non sapien. Fusce nibh.
+                                        Světla mají až zázračnou schopnost proměnit jakoukoli místnost a také vaši náladu. Správná volba světel navodí relaxaci, soustředění či třeba energii pro správnou párty
                                     </div>
                                 </div>
                             </div>
@@ -451,7 +450,7 @@ and open the template in the editor.
                         <a href="#advantages" class="service__back">
                             zpět
                         </a>
-                        <img class="service__img" src="public/img/ikona_test.png">
+                        <img class="service__img" src="public/img/ico_safety.png">
                         <h1 class="service__heading heading heading--1 heading--center">
                             Vaše bezpečí
                         </h1>
@@ -512,7 +511,8 @@ and open the template in the editor.
                                     Prevence
                                 </h3>
                                 <div class="service__detail__paragraph paragraph">
-                                    Vybavením Vašeho domu prvky zabezpečovacího systému získáte jistotu, že je doma vše v pořádku. Senzory otevřených oken/dveří a senzory pohybu bezpečně detekují nežádoucího návštěvníka. Kombinaci hlasité alarmové sirény a blikajícím osvětlení se spolehlivě odradí případného zloděje o loupež v domě a váš majetek tak zůstane v bezpečí.
+                                    Účinná preventivní opatření mohou předejít vloupání dřív, než k němu dojde.
+                                    Viditelně umístěná bezpečnostní siréna a sofistikovaná simulace přítomnosti už sama o sobě odláká potencionálního zloděje. Dům se během vaší nepřítomnosti chová, jako byste vůbec nebyli pryč. Náhodně stahuje a vytahuje žaluzie a pohrává si s osvětlením. Pro zloděje určitě nebude tak lákavý.
                                 </div>
                             </div>
                             <div class="service__detail__col">
@@ -528,7 +528,7 @@ and open the template in the editor.
                                     Ochrana budovy
                                 </h3>
                                 <div class="service__detail__paragraph paragraph">
-                                    Vybavením Vašeho domu prvky zabezpečovacího systému získáte jistotu, že je doma vše v pořádku. Senzory otevřených oken/dveří a senzory pohybu bezpečně detekují nežádoucího návštěvníka. Kombinaci hlasité alarmové sirény a blikajícím osvětlení se spolehlivě odradí případného zloděje o loupež v domě a váš majetek tak zůstane v bezpečí.
+                                    24h denně systém monitoruje situaci v domě pomocí čidel požáru a záplavy, úniku plynu či silného větru. Sytém tak dokáže monitorovat a reagovat na nečekané problémy vzniklé např. požárem od vadného elektrospotřebiče, unikem vody z pračky či myčky, nebo vlivem silného větru.
                                 </div>
                             </div>
                             <div class="service__detail__col">
@@ -544,7 +544,7 @@ and open the template in the editor.
                                     Vzdálený dohled
                                 </h3>
                                 <div class="service__detail__paragraph paragraph">
-                                    Vybavením Vašeho domu prvky zabezpečovacího systému získáte jistotu, že je doma vše v pořádku. Senzory otevřených oken/dveří a senzory pohybu bezpečně detekují nežádoucího návštěvníka. Kombinaci hlasité alarmové sirény a blikajícím osvětlení se spolehlivě odradí případného zloděje o loupež v domě a váš majetek tak zůstane v bezpečí.
+                                    Díky mobilní aplikaci máte neustálý přehled o situaci v domě. Integrací bezpečnostních kamer máte okamžitý přehled i o dění v okolí Vašeho domu.
                                 </div>
                             </div>
                             <div class="service__detail__col">
@@ -554,6 +554,135 @@ and open the template in the editor.
                             </div>
                         </div>
                         <input class="service__controll" id="service-1-5" v-on:change="trigger(1,5)" name="service-1" type="radio">
+                        <div class="service__detail">
+                            <div class="service__detail__col">
+                                <h3 class="service__detail__heading heading heading--3">
+                                    Přístup do domu
+                                </h3>
+                                <div class="service__detail__paragraph paragraph">
+                                    Důvěryhodnou paní na úklid, či zahradníka můžete na dálku pustit do domu, aniž byste jim museli dávat kód od zabezpečovacího systému. Stejně tak pustíte domů vracející se dítě ze školy, pokud si zapomnělo doma klíče.
+                                </div>
+                            </div>
+                            <div class="service__detail__col">
+                                <div class="image" style='background-image: url(public/img/placeholder.jpg)'>
+                                    <img class="ratio-keeper" src="public/img/ratio-keepers/4x3.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="service_lighting" class="service">
+                <div class="service__container">
+                    <div class="service__header">
+                        <a href="#advantages" class="service__back">
+                            zpět
+                        </a>
+                        <img class="service__img" src="public/img/ico_air.png">
+                        <h1 class="service__heading heading heading--1 heading--center">
+                            Osvětlení
+                        </h1>
+                        <div class="service__paragraph">
+                            c. Podobně, jako by dnes málokdo chtěl černobílou televizi, ani my se už nespokojíme s jedním světlem, které buď zapneme nebo vypneme. Ale každodenní ovládání řady tlačítek není zrovna pohodlné. Co s tím?
+                            V chytrém domě světla ví, jestli a jak mají svítit. Když vstoupíte do místnosti, kde je tma, rozsvítí základní světlo. Když odejdete, sama zhasnou. Když ale spíte, svítí pouze tak, aby nikoho neoslnila. Stačí sundat nohu z postele. Ve většině případů se o ně nemusíte vůbec starat.
+                        </div>
+
+                    </div>
+                    <div class="service__menu service__menu--overflowing" ref="labels-2">
+                        <div class="service__menu__wrapper">
+                            <div class="service__menu__container">
+                                <label for="service-2-1" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[2][1] }">
+                                    Ochrana před zloději
+                                </label>
+                                <label for="service-2-2" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[2][2] }">
+                                    Prevence
+                                </label>
+                                <label for="service-2-3" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[2][3] }">
+                                    Ochrana budovy
+                                </label>
+                                <label for="service-2-4" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[2][4] }">
+                                    Vzdálený dohled
+                                </label>
+                                <label for="service-2-5" v-on:click='labelClick($event)' class="service__menu__item" v-bind:class="{ 'service__menu__item--active' : labels[2][5] }">
+                                    Přístup do domu
+                                </label>
+                            </div>
+                        </div>
+                        <svg class="service__menu__arrow service__menu__arrow--left" viewBox="0 0 53.789 97.124">
+                        <polygon class="service__menu__arrow__path" points="48.564,97.124 0,48.563 48.564,0 53.789,5.225 10.452,48.563 53.789,91.899"/>
+                        </svg>
+                        <svg class="service__menu__arrow service__menu__arrow--right" viewBox="0 0 53.789 97.124">
+                        <polygon class="service__menu__arrow__path" points="5.225,97.124 53.789,48.563 5.225,0 0,5.225 43.337,48.563 0,91.899 	"/>
+                        </svg>
+
+                    </div>
+                    <div class="service__details">
+                        <input class="service__controll" id="service-2-1" v-on:change="trigger(2,1)" name="service-2" type="radio" checked>
+                        <div class="service__detail">
+                            <div class="service__detail__col">
+                                <h3 class="service__detail__heading heading heading--3">
+                                    Ochrana před zloději
+                                </h3>
+                                <div class="service__detail__paragraph paragraph">
+                                    Vybavením Vašeho domu prvky zabezpečovacího systému získáte jistotu, že je doma vše v pořádku. Senzory otevřených oken/dveří a senzory pohybu bezpečně detekují nežádoucího návštěvníka. Kombinaci hlasité alarmové sirény a blikajícím osvětlení se spolehlivě odradí případného zloděje o loupež v domě a váš majetek tak zůstane v bezpečí.
+                                </div>
+                            </div>
+                            <div class="service__detail__col">
+                                <div class="image" style='background-image: url(public/img/placeholder.jpg)'>
+                                    <img class="ratio-keeper" src="public/img/ratio-keepers/4x3.png">
+                                </div>
+                            </div>
+                        </div>
+                        <input class="service__controll" id="service-2-2" v-on:change="trigger(2,2)" name="service-2" type="radio">
+                        <div class="service__detail">
+                            <div class="service__detail__col">
+                                <h3 class="service__detail__heading heading heading--3">
+                                    Prevence
+                                </h3>
+                                <div class="service__detail__paragraph paragraph">
+                                    Účinná preventivní opatření mohou předejít vloupání dřív, než k němu dojde.
+                                    Viditelně umístěná bezpečnostní siréna a sofistikovaná simulace přítomnosti už sama o sobě odláká potencionálního zloděje. Dům se během vaší nepřítomnosti chová, jako byste vůbec nebyli pryč. Náhodně stahuje a vytahuje žaluzie a pohrává si s osvětlením. Pro zloděje určitě nebude tak lákavý.
+                                </div>
+                            </div>
+                            <div class="service__detail__col">
+                                <div class="image" style='background-image: url(public/img/placeholder.jpg)'>
+                                    <img class="ratio-keeper" src="public/img/ratio-keepers/4x3.png">
+                                </div>
+                            </div>
+                        </div>
+                        <input class="service__controll" id="service-2-3" v-on:change="trigger(2,3)" name="service-2" type="radio">
+                        <div class="service__detail">
+                            <div class="service__detail__col">
+                                <h3 class="service__detail__heading heading heading--3">
+                                    Ochrana budovy
+                                </h3>
+                                <div class="service__detail__paragraph paragraph">
+                                    Vybavením Vašeho domu prvky zabezpečovacího systému získáte jistotu, že je doma vše v pořádku. Senzory otevřených oken/dveří a senzory pohybu bezpečně detekují nežádoucího návštěvníka. Kombinaci hlasité alarmové sirény a blikajícím osvětlení se spolehlivě odradí případného zloděje o loupež v domě a váš majetek tak zůstane v bezpečí.
+                                </div>
+                            </div>
+                            <div class="service__detail__col">
+                                <div class="image" style='background-image: url(public/img/placeholder.jpg)'>
+                                    <img class="ratio-keeper" src="public/img/ratio-keepers/4x3.png">
+                                </div>
+                            </div>
+                        </div>
+                        <input class="service__controll" id="service-2-4" v-on:change="trigger(2,4)" name="service-2" type="radio">
+                        <div class="service__detail">
+                            <div class="service__detail__col">
+                                <h3 class="service__detail__heading heading heading--3">
+                                    Vzdálený dohled
+                                </h3>
+                                <div class="service__detail__paragraph paragraph">
+                                    Vybavením Vašeho domu prvky zabezpečovacího systému získáte jistotu, že je doma vše v pořádku. Senzory otevřených oken/dveří a senzory pohybu bezpečně detekují nežádoucího návštěvníka. Kombinaci hlasité alarmové sirény a blikajícím osvětlení se spolehlivě odradí případného zloděje o loupež v domě a váš majetek tak zůstane v bezpečí.
+                                </div>
+                            </div>
+                            <div class="service__detail__col">
+                                <div class="image" style='background-image: url(public/img/placeholder.jpg)'>
+                                    <img class="ratio-keeper" src="public/img/ratio-keepers/4x3.png">
+                                </div>
+                            </div>
+                        </div>
+                        <input class="service__controll" id="service-2-5" v-on:change="trigger(2,5)" name="service-2" type="radio">
                         <div class="service__detail">
                             <div class="service__detail__col">
                                 <h3 class="service__detail__heading heading heading--3">
@@ -573,7 +702,7 @@ and open the template in the editor.
                 </div>
             </section>
 
-            <section class="showroom">
+            <section id="showroom" class="showroom">
                 <div class="showroom__container">
                     <div class="showroom__col">
                         <h2 class="showroom__heading  heading heading--2">
@@ -591,7 +720,7 @@ and open the template in the editor.
                     </div>
                 </div>
             </section>
-            <section class="contacts">
+            <section id="contacts" class="contacts">
                 <div class="contacts__container">
                     <h2 class="contacts__heading heading heading--2">
                         Kontaktujte nás
@@ -623,17 +752,52 @@ and open the template in the editor.
             </div>
         </footer>
         <script type="text/javascript">
+
+            var menu_items = document.querySelectorAll(".menu__item");
+            var hooks = [];
+
+            function debounce(func, wait, immediate) {
+                var timeout;
+                return function () {
+                    var context = this, args = arguments;
+                    var later = function () {
+                        timeout = null;
+                        if (!immediate)
+                            func.apply(context, args);
+                    };
+                    var callNow = immediate && !timeout;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                    if (callNow)
+                        func.apply(context, args);
+                };
+            }
+            ;
+
+            function throttle(func, wait = 100) {
+                let timer = null;
+                return function (...args) {
+                    if (timer === null) {
+                        timer = setTimeout(() => {
+                            func.apply(this, args);
+                            timer = null;
+                        }, wait);
+                    }
+                };
+            }
+
             if (!String.prototype.startsWith) {
                 String.prototype.startsWith = function (searchString, position) {
                     position = position || 0;
                     return this.substr(position, searchString.length) === searchString;
                 };
             }
+
             function documentIsFinishedLoading() {
                 return /^complete|^i|^c/.test(document.readyState);
             }
 
-            function doWhenDocumentReadyStateIsComplete(doWork) {
+            function onDocumentReadyStateComplete(doWork) {
                 var intervalId;
                 if (documentIsFinishedLoading()) {
                     doWork();
@@ -647,7 +811,7 @@ and open the template in the editor.
                 }
             }
 
-            function check_services() {
+            function init_check_services() {
                 let hash = window.location.hash.slice(1);
                 if (hash.startsWith("service_")) {
                     document.body.classList.add('body--lock');
@@ -656,10 +820,9 @@ and open the template in the editor.
                 }
             }
 
-            var menus = document.getElementsByClassName("service__menu");
-            var length = menus.length;
-
-            function check_services_menu() {
+            function init_check_services_menu() {
+                var menus = document.getElementsByClassName("service__menu");
+                var length = menus.length;
                 for (var i = 0; i < length; i++) {
                     var l1 = menus[i].firstElementChild.offsetWidth;
                     var l2 = menus[i].firstElementChild.firstElementChild.scrollWidth;
@@ -674,44 +837,112 @@ and open the template in the editor.
                 }
             }
 
-            doWhenDocumentReadyStateIsComplete(() => {
-                check_services_menu();
-                var viewport = document.querySelector('.service__menu__wrapper');
-                var content = viewport.querySelector('.service__menu__container');
-                var hasMoved = false;
-                var prev_x = 0;
-                let sb = new ScrollBooster({
-                    viewport: viewport, // required
-                    content: content,
-                    mode: 'x',
-                    bounce: false,
-                    textSelection: false,
-                    onUpdate: (data) => {
-                        viewport.scrollLeft = data.position.x;
-                        if (data.dragOffsetPosition.x === 0) {
-                            prev_x = 0;
-                        }
-                        if (data.dragOffsetPosition.x !== prev_x) {
-                            hasMoved = true;
-                            prev_x = data.dragOffsetPosition.x;
+            function init_smooth_scrolling() {
+                var viewports = document.querySelectorAll('.service__menu__wrapper');
+                for (let i = 0; i < viewports.length; i++) {
+                    let hasMoved = false;
+                    let prev_x = 0;
+                    new ScrollBooster({
+                        viewport: viewports[i], // required
+                        mode: 'x',
+                        bounce: false,
+                        textSelection: false,
+                        onUpdate: (data) => {
+                            viewports[i].scrollLeft = data.position.x;
+                            if (data.dragOffsetPosition.x === 0) {
+                                prev_x = 0;
+                            }
+                            if (data.dragOffsetPosition.x !== prev_x) {
+                                hasMoved = true;
+                                prev_x = data.dragOffsetPosition.x;
+                            }
+                        },
+                        onClick: (data, event) => {
+                            if (hasMoved) {
+                                hasMoved = false;
+                                prev_x = data.dragOffsetPosition.x;
+                                event.preventDefault();
+                            }
                         }
 
-                    },
-                    onClick: (data, event) => {
-                        if (hasMoved) {
-                            hasMoved = false;
-                            prev_x = data.dragOffsetPosition.x;
-                            event.preventDefault();
-                        }
+                    });
+                }
+            }
+
+            function init_hooks() {
+                for (let i = 0; i < menu_items.length; i++) {
+                    let hash = menu_items[i].hash.slice(1);
+                    hooks[i] = document.getElementById(hash);
+                }
+            }
+
+            var handleScroll = throttle(function () {
+                console.log('test');
+                var wy = window.scrollY;
+                for (let i = hooks.length - 1; i >= 0; i--) {
+                    let ey = getTopOffset(hooks[i]);
+                    if ((wy + 100) > ey) {
+                        activateMenuItem(i);
+                        break;
                     }
 
-                });
+                }
+            }, 250);
+            
+            function activateMenuItem(index) {
+                for (let i = 0; i < menu_items.length; i++) {
+                    if (i !== index) {
+                        menu_items[i].classList.remove('menu__item--active');
+                    } else {
+                        menu_items[i].classList.add('menu__item--active');
+                    }
+                }
+            }
+
+            function scrollTo(element, to, duration) {
+                var start = element.scrollTop,
+                        change = to - start,
+                        currentTime = 0,
+                        increment = 20;
+
+                var animateScroll = function () {
+                    currentTime += increment;
+                    var val = Math.easeInOutQuad(currentTime, start, change, duration);
+                    element.scrollTop = val;
+                    if (currentTime < duration) {
+                        setTimeout(animateScroll, increment);
+                    }
+                };
+                animateScroll();
+            }
+
+            Math.easeInOutQuad = function (t, b, c, d) {
+                t /= d / 2;
+                if (t < 1)
+                    return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            };
+
+            init_hooks();
+            init_check_services();
+
+            onDocumentReadyStateComplete(() => {
+                init_check_services_menu();
+                init_smooth_scrolling();
             });
 
-            check_services();
+            window.addEventListener('hashchange', init_check_services, false);
+            window.addEventListener('resize', init_check_services_menu, false);
+            window.addEventListener('scroll', function () {
+                handleScroll(hooks);
+            }, false);
 
-            window.addEventListener('hashchange', check_services, false);
-            window.addEventListener('resize', check_services_menu, false);
+            for (let i = 0; i < menu_items.length; i++) {
+                menu_items[i].addEventListener('click', function () {
+                    activateMenuItem(i);
+                });
+            }
 
             var app = new Vue({
                 el: '#app',
@@ -775,14 +1006,25 @@ and open the template in the editor.
                         setTimeout(() => {
                             this.dragging = false;
                         }, 100);
+                    },
+                    handleScroll() {
+
                     }
                 },
-                mounted: function () {
-
-                }
 
             }
             );
+
+
+
+
+
+
+
+
+
+
+
 
 
 
