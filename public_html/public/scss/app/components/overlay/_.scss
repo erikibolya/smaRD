@@ -2,30 +2,38 @@
 
 .overlay{
     @include container-pl;
-    &--hide{
-        display: none;
-        @include media(l){
-            display: flex;
-        }
-    }
 }
 
 .overlay__container{
     display: flex;
-    background-color: transparentize($color-terciary,0.12);
+    background-color: transparentize($color-terciary,0.55);
     margin-left: auto;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    @include linear-interpolation-chain(width, (xl: 600, l: 500));
     @include linear-interpolation-chain(padding-left, $overlay-container-paddings);
     @include linear-interpolation-chain(padding-right, $overlay-container-paddings);
     height: 100%;
+    width: 100%;
+    text-align: center;
+
+    @include media(l){
+        text-align: left;
+        @include linear-interpolation-chain(width, (xl: 600, l: 500));
+    }
 }
 
 .overlay__heading{
     width: 100%;
     margin-bottom: rem(30);
+
+
+    &--push{
+        margin-top: auto;
+        @include media(l){
+            margin-top: 0;
+        }
+    }
 }
 
 .overlay__link{
@@ -40,16 +48,23 @@
     cursor: pointer;
     transition: box-shadow 500ms;
     margin-top: rem(15);
+    align-self: center;
     &:hover{
         @include material-box-shadow(2 * $overlay-shadow-depth);
+    }
+    @include media(l){
+        align-self: stretch;
     }
 }
 
 .overlay__arrow{
     width: rem(200);
     align-self: center;
-    margin-top: rem(60);
+    margin-top: auto;
     animation: float 2s ease-in-out infinite;
+    @include media(l){
+        margin-top: rem(60);
+    }
 }
 
 @keyframes float {

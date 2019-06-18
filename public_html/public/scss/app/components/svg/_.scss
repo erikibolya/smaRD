@@ -4,7 +4,7 @@
 .svg{
     display: block;
     @include linear-interpolation-chain(width, $svg-sizes);
-     @include linear-interpolation-chain(height, $svg-sizes);
+    @include linear-interpolation-chain(height, $svg-sizes);
 
 
     &--absolute{
@@ -19,6 +19,36 @@
 }
 
 .svg--air{
+    path{
+        fill: $color-terciary;
+    }
+}
+
+.svg--lighting{
+    path{
+        fill: $color-terciary;
+    }
+}
+
+.svg--remote{
+    path{
+        fill: $color-terciary;
+    }
+}
+
+.svg--safety{
+    path{
+        fill: $color-terciary;
+    }
+}
+
+.svg--soundsystem{
+    path{
+        fill: $color-terciary;
+    }
+}
+
+.svg--sunblind{
     path{
         fill: $color-terciary;
     }

@@ -52,8 +52,11 @@
     @include material-box-shadow(4);
     @include border-radius(rem(3));
     transition: box-shadow 500ms;
+    height: rem(200);
 
-    @include media(m){
+
+
+    @include media(l){
         height: 100%;
     }
     &:focus{

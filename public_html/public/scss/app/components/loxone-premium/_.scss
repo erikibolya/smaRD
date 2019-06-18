@@ -1,0 +1,39 @@
+@import "variables.scss";
+
+.loxone-premium{
+    background-image: url(../img/BG.svg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include linear-interpolation-chain(padding-bottom, $loxone-premium-paddings);
+    @include linear-interpolation-chain(padding-top, $loxone-premium-paddings);
+}
+
+.loxone-premium__container{
+    @include container;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loxone-premium__heading{
+    color: $color-primary;
+}
+
+.loxone-premium__paragraph{
+    color: $loxone-color;
+    font-weight: 300;
+    max-width: rem(600);
+}
+
+.loxone-premium__block{
+
+}
+.loxone-premium__img{
+    width: 80%;
+    max-width: rem(600);
+    display: block;
+    margin: 0 auto;
+    @include material-box-shadow(8);
+}
+
+
