@@ -7,12 +7,15 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: rem(80) 0;
+    padding: rem(80) 0; 
+    @include media(l){ 
+        padding:0;
+    }
 }
 
 .showroom__parallax{
     display: block;
-    width: 130%;
+    width: 200%;
 }
 .showroom__container{
     @include container;
@@ -44,6 +47,10 @@
     max-width: rem(500);
     font-weight: 300;
     margin-bottom: 2em;
+    text-align: center;
+    @include media(l){
+        text-align: left;
+    }
 }
 
 .showroom__link{
@@ -51,9 +58,10 @@
     @include fluid-font(m);
     background-color: $color-terciary-light;
     font-weight: 300;
-    padding: 0.6em;
+    padding: 0.6em 1em;
     text-align: center;
     cursor: pointer;
+    margin-top: 2em;
     @include material-box-shadow(8);
     transition: box-shadow 500ms;
 

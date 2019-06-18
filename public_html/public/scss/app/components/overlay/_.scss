@@ -20,6 +20,7 @@
     @include media(l){
         text-align: left;
         @include linear-interpolation-chain(width, (xl: 600, l: 500));
+        background-color: transparentize($color-terciary,0.12);
     }
 }
 

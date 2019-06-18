@@ -92,11 +92,8 @@
 .service__paragraph{
     width: 100%;
     max-width: rem(800);
-    text-align: center;
-    @include fluid-font(s);
-
-    font-weight: 300;
-    margin-bottom: 4.5em; 
+    margin-bottom: 2em; 
+    color: $color-primary;
 }
 
 .service__menu{
@@ -107,7 +104,7 @@
     max-width: rem($layout-container-max-width);
     margin-left: auto;
     margin-right: auto;
-    font-size: rem(22);
+    font-size: rem(20);
     height: 4em;
     margin-bottom: -2em;
 

@@ -89,6 +89,7 @@
 }
 
 .menu__item--line{
+    display: none;
     width: 100%;
     height: 0.2em;
     background-color: $color-terciary;
@@ -103,6 +104,9 @@
     }
     @at-root .menu__item:hover &{
         transform: scale(1,1); 
+    }
+    @include media($menu-breakpoint){
+       display: block;
     }
 
 }

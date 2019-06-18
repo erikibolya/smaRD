@@ -4,5 +4,15 @@
     display: block;
     @include linear-interpolation-chain(width,$hamburger-sizes);
     @include linear-interpolation-chain(height,$hamburger-sizes);
+
+    &:hover{
+        .hamburger__path{
+            fill: $color-terciary;
+        }
+    }
+    &__path{
+        fill: $color-primary;
+        transition: fill 500ms;
+    }
 }
 

@@ -6,7 +6,6 @@
     @include linear-interpolation-chain(width, $svg-sizes);
     @include linear-interpolation-chain(height, $svg-sizes);
 
-
     &--absolute{
         position: absolute;
         top: 0;bottom:0;
@@ -14,6 +13,15 @@
         margin: auto;
         width: 70%;
         height: 70%;
+    }
+    &--icon{
+        width: 100%;
+        height: 100%;
+        fill: $color-secondary;
+        transition: fill 500ms;
+        &:hover{
+            fill: $color-terciary-light;
+        }
     }
 
 }
@@ -52,4 +60,8 @@
     path{
         fill: $color-terciary;
     }
+}
+
+.svg--facebook{
+
 }

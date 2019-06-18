@@ -41,6 +41,7 @@
     color: $loxone-color;
     font-weight: 300;
     width: 100%;
+    text-align: justify;
 }
 
 .specialist__block{
@@ -54,6 +55,10 @@
     margin: 0 auto;
     @include material-box-shadow(8);
     margin-bottom: rem(60);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
     @include media(l){
         margin-bottom: 0;
     }
