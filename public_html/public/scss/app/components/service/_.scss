@@ -172,7 +172,6 @@
 }
 
 .service__menu__label-wrapper{
-
     width: auto;
 }
 
@@ -203,7 +202,10 @@
     display: flex;
     flex-grow: 1;
     width: 100%;
-    background-color: $service-details-background-color;
+    background-image: url(../img/BG.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     @include linear-interpolation-chain(padding-top, $service-details-vertical-paddings);
     @include linear-interpolation-chain(padding-bottom, $service-details-vertical-paddings);
 }
