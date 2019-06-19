@@ -395,18 +395,18 @@ body {
   100% {
     transform: translatey(0rem); } }
 .advantages {
-  padding-top: calc(4.54545vw + 0.34091rem);
-  padding-bottom: calc(4.54545vw + 0.34091rem);
+  padding-top: calc(2.27273vw + 4.54545rem);
+  padding-bottom: calc(2.27273vw + 4.54545rem);
   background-image: url("../img/bg_navi.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center; }
   @media (min-width: 75em) {
     .advantages {
-      padding-top: 3.75rem; } }
+      padding-top: 6.25rem; } }
   @media (min-width: 75em) {
     .advantages {
-      padding-bottom: 3.75rem; } }
+      padding-bottom: 6.25rem; } }
 
 .advantages__container {
   display: flex;
@@ -1374,6 +1374,8 @@ body {
 .image {
   width: 100%;
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   box-shadow: 0 0.25272rem 0.41576rem -0.13315rem rgba(0, 0, 0, 0.2), 0 0.5rem 0.7663rem 0.05707rem rgba(0, 0, 0, 0.14), 0 0.25815rem 0.91848rem 0.1087rem rgba(0, 0, 0, 0.12); }
 
 /*# sourceMappingURL=main.css.map */
