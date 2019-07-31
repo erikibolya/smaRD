@@ -1,6 +1,64 @@
 @import "variables.scss";
 
 .logo{
+    display: block;
     @include linear-interpolation-chain(width,$logo-widths);
     @include linear-interpolation-chain(height,$logo-heights);
+}
+
+.logo__object{
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.logo__object--left{
+    animation-name: logo-left;
+}
+
+.logo__object--text{
+    animation-name: logo-text
+}
+
+.logo__object--right{
+    animation-name: logo-right;
+}
+
+
+@keyframes logo-left{
+    0%,43.5%{
+        transform: translate(0px,0px);
+    }
+    48.5%,51.5%{
+        transform: translate(-77px, -40px);
+    }
+    56.5%,100%{
+        transform: translate(0px,0px);
+    }
+}
+
+@keyframes logo-right{
+    0%,43.5%{
+        transform: translate(0px,0px);
+    }
+    48.5%,51.5%{
+        transform: translate(77px, -40px);
+    }
+    56.5%,100%{
+        transform: translate(0px,0px);
+    }
+
+}
+
+
+@keyframes logo-text{
+    0%,43.5%{
+        transform: translate(0px,0px);
+    }
+    48.5%,51.5%{
+        transform: translate(45px, 0px);
+    }
+    56.5%,100%{
+        transform: translate(0px,0px);
+    }
 }
