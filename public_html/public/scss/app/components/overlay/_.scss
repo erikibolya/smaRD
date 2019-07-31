@@ -48,6 +48,7 @@
     @include material-box-shadow($overlay-shadow-depth);
     cursor: pointer;
     transition: box-shadow 500ms;
+    text-decoration: none;
     margin-top: rem(15);
     align-self: center;
     &:hover{

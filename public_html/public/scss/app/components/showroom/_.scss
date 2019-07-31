@@ -19,6 +19,7 @@
 }
 .showroom__container{
     @include container;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
@@ -39,7 +40,21 @@
             display: block;
         }
     }
+    &--full{
+        width: 100%;
+        align-items: center;
+    }
 
+}
+
+.showroom__arrow{
+    position: absolute;
+    top: 200%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: rem(100);
+    animation: float 2s ease-in-out infinite;
 }
 
 .showroom__paragraph{
@@ -54,6 +69,7 @@
 }
 
 .showroom__link{
+    position: relative;
     color: $color-secondary;
     @include fluid-font(m);
     background-color: $color-terciary-light;
@@ -62,6 +78,7 @@
     text-align: center;
     cursor: pointer;
     margin-top: 2em;
+    text-decoration: none;
     @include material-box-shadow(8);
     transition: box-shadow 500ms;
 

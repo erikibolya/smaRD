@@ -195,7 +195,7 @@ and open the template in the editor.
                             <h2 class="overlay__heading heading heading--2 heading--italic heading--thin">
                                 Chytré domy category
                             </h2>
-                            <a class="overlay__link">
+                            <a href="#showroom" class="overlay__link scroll-link">
                                 Prohlídka vzorového domu
                             </a>
                             <img class="overlay__arrow" src="public/img/sipka.png">
@@ -699,13 +699,16 @@ and open the template in the editor.
                             Vyzkoušejte SmaRD home na vlastní kůži. Zážitek vydá za tisíce slov!
                             Život ve skutečně chytré domácnosti nedokáže přiblížit žádný popis. Proto vám nabízíme několik možností, jak jej osobně a zdarma zakusit. Zjistíte, co váš domov může umět a s čím se nemusíte smířit. Vše si také můžete sami vyzkoušet a ověřit. Přímo v domě se Vám bude věnovat náš pověřený specialista, který s Vámi rád probere všechny vaše otázky...
                         </div>
-                        <a class="showroom__link">
+                        <a href="#contacts" class="showroom__link scroll-link">
                             Rezervujte si prohlídku
+                            <img class="showroom__arrow" src="public/img/sipka.png">
                         </a>
                     </div>
                     <div class="showroom__col showroom__col--hidden">
                         <img data-jarallax-element="100" class="showroom__parallax" src="public/img/showroom.png">
                     </div>
+
+
                 </div>
             </section>
             <section class="specialist">
@@ -919,6 +922,7 @@ and open the template in the editor.
         <script type="text/javascript">
 
             var menu_items = document.querySelectorAll(".menu__item");
+            var scroll_items = document.querySelectorAll(".scroll-link");
             var hooks = [];
             var menu_trigger = document.getElementById("menu-trigger");
             var header = document.getElementById("header");
@@ -1139,6 +1143,14 @@ and open the template in the editor.
             for (let i = 0; i < menu_items.length; i++) {
                 menu_items[i].addEventListener('click', function (e) {
                     activateMenuItem(e, i, true);
+                });
+            }
+
+            for (let i = 0; i < menu_items.length; i++) {
+                scroll_items[i].addEventListener('click', function (e) {
+                    event.preventDefault();          
+                    let hash = scroll_items[i].hash.slice(1);
+                    document.getElementById(hash).scrollIntoView({behavior: "smooth"});
                 });
             }
 
