@@ -347,7 +347,7 @@ body {
   background-image: url("../img/carousel-s.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 30% center; }
+  background-position: 15% center; }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
     .carousel__container {
       background-image: url("../img/carousel-s@2x.jpg"); } }
