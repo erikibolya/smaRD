@@ -195,7 +195,7 @@ and open the template in the editor.
                             <h2 class="overlay__heading heading heading--2 heading--italic heading--thin">
                                 Chytré domy category
                             </h2>
-                            <a href="#showroom" class="overlay__link scroll-link">
+                            <a href="#showroom" class="overlay__link"  v-on:click="scrollTo($event, 'showroom')">
                                 Prohlídka vzorového domu
                             </a>
                             <img class="overlay__arrow" src="public/img/sipka.png">
@@ -699,7 +699,7 @@ and open the template in the editor.
                             Vyzkoušejte SmaRD home na vlastní kůži. Zážitek vydá za tisíce slov!
                             Život ve skutečně chytré domácnosti nedokáže přiblížit žádný popis. Proto vám nabízíme několik možností, jak jej osobně a zdarma zakusit. Zjistíte, co váš domov může umět a s čím se nemusíte smířit. Vše si také můžete sami vyzkoušet a ověřit. Přímo v domě se Vám bude věnovat náš pověřený specialista, který s Vámi rád probere všechny vaše otázky...
                         </div>
-                        <a href="#contacts" class="showroom__link scroll-link">
+                        <a href="#contacts" class="showroom__link" v-on:click="scrollTo($event, 'contacts')">
                             Rezervujte si prohlídku
                             <img class="showroom__arrow" src="public/img/sipka.png">
                         </a>
@@ -922,7 +922,6 @@ and open the template in the editor.
         <script type="text/javascript">
 
             var menu_items = document.querySelectorAll(".menu__item");
-            var scroll_items = document.querySelectorAll(".scroll-link");
             var hooks = [];
             var menu_trigger = document.getElementById("menu-trigger");
             var header = document.getElementById("header");
@@ -1146,14 +1145,6 @@ and open the template in the editor.
                 });
             }
 
-            for (let i = 0; i < menu_items.length; i++) {
-                scroll_items[i].addEventListener('click', function (e) {
-                    event.preventDefault();          
-                    let hash = scroll_items[i].hash.slice(1);
-                    document.getElementById(hash).scrollIntoView({behavior: "smooth"});
-                });
-            }
-
             var app = new Vue({
                 el: '#app',
                 data: {
@@ -1216,6 +1207,10 @@ and open the template in the editor.
                         setTimeout(() => {
                             this.dragging = false;
                         }, 100);
+                    },
+                    scrollTo: function (e, hash) {
+                        e.preventDefault();
+                        document.getElementById(hash).scrollIntoView({behavior: "smooth"});
                     }
                 }
 
