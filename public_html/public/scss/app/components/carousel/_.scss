@@ -2,7 +2,7 @@
 
 .carousel{
     height: 100vh;
-    max-height: rem(700);
+    max-height: rem(800);
     @include linear-interpolation-chain(padding-top,$header-heights);
 }
 
@@ -20,6 +20,9 @@
     height: 100%;
     width: 100%;
     opacity: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     transition-property: opacity;
     transition-timing-function: ease-in;
     transition-duration: 500ms;

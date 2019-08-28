@@ -335,7 +335,7 @@ body {
 
 .carousel {
   height: 100vh;
-  max-height: 43.75rem;
+  max-height: 50rem;
   padding-top: calc(2.27273vw + 3.29545rem); }
   @media (min-width: 75em) {
     .carousel {
@@ -354,23 +354,20 @@ body {
   height: 100%;
   width: 100%;
   opacity: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   transition-property: opacity;
   transition-timing-function: ease-in;
   transition-duration: 500ms; }
   .carousel__background--active {
     opacity: 1; }
   .carousel__background--0 {
-    background-image: url("../img/carousel-1-xl@2x.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; }
+    background-image: url("../img/carousel-1-xl@2x.jpg"); }
   .carousel__background--1 {
-    background-image: url("../img/carousel-2-xl@2x.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; }
+    background-image: url("../img/carousel-2-xl@2x.jpg"); }
   .carousel__background--2 {
-    background-image: url("../img/carousel-3-xl@2x.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; }
+    background-image: url("../img/carousel-3-xl@2x.jpg"); }
 
 .overlay {
   display: flex;
