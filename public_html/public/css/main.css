@@ -335,49 +335,50 @@ body {
 
 .carousel {
   height: 100vh;
+  max-height: 43.75rem;
   padding-top: calc(2.27273vw + 3.29545rem); }
   @media (min-width: 75em) {
     .carousel {
       padding-top: 5rem; } }
 
 .carousel__container {
+  position: relative;
   display: flex;
   width: 100%;
+  height: 100%; }
+
+.carousel__background {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
-  background-image: url("../img/carousel-s.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 15% center; }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-    .carousel__container {
-      background-image: url("../img/carousel-s@2x.jpg"); } }
-  @media (min-width: 37.5em) {
-    .carousel__container {
-      background-image: url("../img/carousel-m.jpg"); } }
-  @media only screen and (min-width: 37.5em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 37.5em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 37.5em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 37.5em) and (min-device-pixel-ratio: 2), only screen and (min-width: 37.5em) and (min-resolution: 192dpi), only screen and (min-width: 37.5em) and (min-resolution: 2dppx) {
-    .carousel__container {
-      background-image: url("../img/carousel-m@2x.jpg"); } }
-
-  @media (min-width: 56.25em) {
-    .carousel__container {
-      background-image: url("../img/carousel-l.jpg"); } }
-  @media only screen and (min-width: 56.25em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 56.25em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 56.25em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 56.25em) and (min-device-pixel-ratio: 2), only screen and (min-width: 56.25em) and (min-resolution: 192dpi), only screen and (min-width: 56.25em) and (min-resolution: 2dppx) {
-    .carousel__container {
-      background-image: url("../img/carousel-l@2x.jpg"); } }
-
-  @media (min-width: 75em) {
-    .carousel__container {
-      background-image: url("../img/carousel-xl.jpg"); } }
-  @media only screen and (min-width: 75em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 75em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 75em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 75em) and (min-device-pixel-ratio: 2), only screen and (min-width: 75em) and (min-resolution: 192dpi), only screen and (min-width: 75em) and (min-resolution: 2dppx) {
-    .carousel__container {
-      background-image: url("../img/carousel-xl@2x.jpg"); } }
+  width: 100%;
+  opacity: 0;
+  transition-property: opacity;
+  transition-timing-function: ease-in;
+  transition-duration: 500ms; }
+  .carousel__background--active {
+    opacity: 1; }
+  .carousel__background--0 {
+    background-image: url("../img/carousel-1-xl@2x.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .carousel__background--1 {
+    background-image: url("../img/carousel-2-xl@2x.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .carousel__background--2 {
+    background-image: url("../img/carousel-3-xl@2x.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; }
 
 .overlay {
   display: flex;
   width: 100%;
   max-width: 75rem;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  z-index: 10; }
 
 .overlay__container {
   display: flex;

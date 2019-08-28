@@ -187,6 +187,10 @@ and open the template in the editor.
         <main class="main" id="app">
             <section id="home" class="carousel">
                 <div class="carousel__container">
+                    <carousel-background v-for="(slide, index) in slides"
+                                         v-bind:index="index"
+                                         v-bind:active='slide'>
+                    </carousel-background>
                     <div class="overlay">
                         <div class="overlay__container">
                             <h1 class="overlay__heading overlay__heading--push heading heading--1">
@@ -1145,10 +1149,37 @@ and open the template in the editor.
                 });
             }
 
+            Vue.component('carousel-background', {
+                props: ["active", "index"],
+                template: '<div class="carousel__background" :class="[getNumberClass(), isActive()]"></div>',
+                methods: {
+                    isActive() {
+                        if (this.active) {
+                            return "carousel__background--active";
+                        } else {
+                            return "";
+                        }
+
+                    },
+                    getNumberClass() {
+                        return "carousel__background--" + this.index;
+                    }
+                }
+
+            });
+
             var app = new Vue({
                 el: '#app',
                 data: {
                     dragging: false,
+                    timeout: null,
+                    active: 0,
+                    step: 5000,
+                    slides: [
+                        true,
+                        false,
+                        false
+                    ],
                     labels: {
                         1: {
                             1: true,
@@ -1211,7 +1242,29 @@ and open the template in the editor.
                     scrollTo: function (e, hash) {
                         e.preventDefault();
                         document.getElementById(hash).scrollIntoView({behavior: "smooth"});
+                    },
+                    rotate: function () {
+                        clearTimeout(this.timeout);
+                        for (var i = 0; i < this.slides.length; i++) {
+                            if (i === this.active) {
+                                Vue.set(this.slides, i, true);
+                            } else {
+                                Vue.set(this.slides, i, false);
+                            }
+                        }
+                        this.next();
+                        this.timeout = setTimeout(this.rotate, this.step);
+                    },
+                    next: function () {
+                        if (this.active < this.slides.length - 1) {
+                            this.active = this.active + 1;
+                        } else {
+                            this.active = 0;
+                        }
                     }
+                },
+                created() {
+                    this.rotate();
                 }
 
             }

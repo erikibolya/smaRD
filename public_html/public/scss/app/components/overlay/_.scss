@@ -2,6 +2,7 @@
 
 .overlay{
     @include container-pl;
+    z-index: 10;
 }
 
 .overlay__container{
