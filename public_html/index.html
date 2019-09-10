@@ -737,7 +737,7 @@ and open the template in the editor.
                     <h2 class="contacts__heading heading heading--2">
                         Kontaktujte nás
                     </h2>
-                    <form class="contacts__form form">
+                    <form class="contacts__form form" action="#contacts">
                         <div class="form__col">
                             <input class="form__input" required type="text" placeholder='Jméno'>
                             <input class="form__input" required type="email" placeholder='Email'>
@@ -912,8 +912,6 @@ and open the template in the editor.
             var menu_trigger = document.getElementById("menu-trigger");
             var header = document.getElementById("header");
             var scrolling = false;
-
-
 
             function debounce(func, wait, immediate) {
                 var timeout;
@@ -1095,8 +1093,6 @@ and open the template in the editor.
             }
             }
 
-
-
             function closeMenu() {
                 menu_trigger.checked = false;
             }
@@ -1108,8 +1104,6 @@ and open the template in the editor.
                 t--;
                 return -c / 2 * (t * (t - 2) - 1) + b;
             };
-
-
 
             init_check_services();
 
@@ -1248,7 +1242,6 @@ and open the template in the editor.
                 created() {
                     this.rotate();
                 }
-
             }
             );
         </script>
