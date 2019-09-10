@@ -1160,6 +1160,104 @@ body {
     .specialist__image {
       margin-bottom: 0; } }
 
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10.9.2019, 9:40:44
+    Author     : Erik
+*/
+.references {
+  background-color: white;
+  padding: 5rem 0; }
+
+.references__wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: calc(1.78571vw + 0.58036rem);
+  padding-right: calc(1.78571vw + 0.58036rem);
+  flex-direction: column;
+  align-items: flex-start; }
+  @media (min-width: 37.5em) {
+    .references__wrapper {
+      padding-left: calc(3.33333vw + 0rem); } }
+  @media (min-width: 56.25em) {
+    .references__wrapper {
+      padding-left: calc(3.33333vw + 0rem); } }
+  @media (min-width: 75em) {
+    .references__wrapper {
+      padding-left: 2.5rem; } }
+  @media (min-width: 37.5em) {
+    .references__wrapper {
+      padding-right: calc(3.33333vw + 0rem); } }
+  @media (min-width: 56.25em) {
+    .references__wrapper {
+      padding-right: calc(3.33333vw + 0rem); } }
+  @media (min-width: 75em) {
+    .references__wrapper {
+      padding-right: 2.5rem; } }
+
+.references__heading {
+  width: 100%;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 2em; }
+
+.references__group {
+  width: 100%; }
+
+.references__item {
+  display: flex;
+  width: 100%;
+  margin-bottom: 6.25rem; }
+
+.references__image {
+  width: 21.875rem;
+  margin-right: 2.5rem;
+  flex-shrink: 0;
+  background-color: #20a70c; }
+
+.references__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.references__name {
+  font-weight: bold;
+  font-size: calc(0.45455vw + 1.03409rem);
+  margin-bottom: 1em; }
+  @media (min-width: 75em) {
+    .references__name {
+      font-size: 1.375rem; } }
+
+.references__text {
+  color: #000000; }
+
+.references__see-more {
+  margin-left: auto;
+  margin-right: auto;
+  color: #ffffff;
+  font-size: calc(0.45455vw + 1.03409rem);
+  background-color: #20a70c;
+  font-weight: 300;
+  padding: 0.6em 1em;
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0 0.25272rem 0.41576rem -0.13315rem rgba(0, 0, 0, 0.2), 0 0.5rem 0.7663rem 0.05707rem rgba(0, 0, 0, 0.14), 0 0.25815rem 0.91848rem 0.1087rem rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: box-shadow 500ms;
+  margin-top: 0.9375rem; }
+  @media (min-width: 75em) {
+    .references__see-more {
+      font-size: 1.375rem; } }
+  .references__see-more:hover {
+    box-shadow: 0 0.47011rem 0.67663rem -0.28533rem rgba(0, 0, 0, 0.2), 0 1rem 1.57065rem 0.12228rem rgba(0, 0, 0, 0.14), 0 0.41033rem 1.89674rem 0.30435rem rgba(0, 0, 0, 0.12); }
+
 .loxone-premium {
   background-image: url(../img/BG.svg);
   background-position: center center;
