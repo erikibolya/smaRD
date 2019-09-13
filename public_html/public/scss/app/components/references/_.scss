@@ -21,26 +21,62 @@
 
 .references__group{
     width: 100%;
-    
+    display: none;
+
+    &--visible{
+        display: block;
+    }
+
 }
 
 .references__item{
     display: flex;
     width: 100%;
     margin-bottom: rem(100);
+    flex-direction: column;
+
+    @include media($references-breakpoint){
+        flex-direction: row;
+    }
 }
 
 .references__image{
-    width: rem(350);
+    max-width: rem(450);
+    width: 100%;
+    margin-bottom: rem(40);
     margin-right: rem(40);
     flex-shrink: 0;
     background-color: $color-terciary;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include material-box-shadow(8);
+    cursor: pointer;
+    @include media($references-breakpoint){
+        max-width: none;
+        width: rem(350);
+        margin-bottom: rem(0);
+        transition-property: transform, box-shadow;
+        transition-duration: 500ms;
+        transition-timing-function: ease;
+        &:hover{
+            @include material-box-shadow(16);
+            transform: scale(1.1);
+            & + .references__content{
+                transform: translateX(rem(50));
+            }
+        } 
+    }
+
 }
 
 .references__content{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition-property: transform;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
 }
 
 .references__name{
@@ -70,4 +106,12 @@
     &:hover{
         @include material-box-shadow(2 * $overlay-shadow-depth);
     }
+
+    &--hidden{
+        display: none;
+    }
+}
+
+.references__link{
+    color: $color-terciary;
 }

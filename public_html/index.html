@@ -18,6 +18,17 @@ and open the template in the editor.
         <script src="https://unpkg.com/jarallax@1.10/dist/jarallax-element.min.js"></script>
         <script src="https://unpkg.com/scrollbooster@1.1.0/dist/scrollbooster.min.js"></script>
         <script src="public/js/scroll-into-view.js"></script>
+        <!-- Core CSS file -->
+        <link rel="stylesheet" href="public/plugins/PhotoSwipe/photoswipe.css"> 
+        <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+             In the folder of skin CSS file there are also:
+             - .png and .svg icons sprite, 
+             - preloader.gif (for browsers that do not support CSS animations) -->
+        <link rel="stylesheet" href="public/plugins/PhotoSwipe/default-skin/default-skin.css"> 
+        <!-- Core JS file -->
+        <script src="public/plugins/PhotoSwipe/photoswipe.min.js"></script> 
+        <!-- UI JS file -->
+        <script src="public/plugins/PhotoSwipe/photoswipe-ui-default.min.js"></script> 
     </head>
     <body>
         <header id="header" class="header">
@@ -178,6 +189,7 @@ and open the template in the editor.
                         <a class="menu__item menu__item--active" href="#home">Inteligentní domy<span class="menu__item--line"></span></a>
                         <a class="menu__item" href="#advantages">Výhody<span class="menu__item--line"></span></a>
                         <a class="menu__item" href="#showroom">Vzorový dům<span class="menu__item--line"></span></a>
+                        <a class="menu__item" href="#references">Reference<span class="menu__item--line"></span></a>
                         <a class="menu__item" href="#contacts">Kontakt<span class="menu__item--line"></span></a>
                     </div>
 
@@ -742,53 +754,54 @@ and open the template in the editor.
                     </div>
                 </div>
             </section>
-            <section class="references">
+            <section class="references" id='references'>
                 <div class="references__wrapper">
                     <h2 class="references__heading heading heading--2">
                         Podívejte se, jak to může vypadat i u Vás
                     </h2>
                     <div class="references__group references__group--visible">
                         <div class="references__item">
-                            <div class="references__image">
+                            <div class="references__image"  v-on:click='showImage({w:1650,h:1073,src:"public/img/reference/reference_1.jpg"})' style="background-image: url(public/img/reference/reference_1_preview.jpg)">
                                 <img class="ratio-keeper" src="public/img/ratio-keepers/3x2.png">
                             </div>
                             <div class="references__content">
                                 <div class="references__name">
-                                    RD Hrušovany u Brna
+                                    RD Pohořelice
                                 </div>
                                 <div class="references__text paragraph">
-                                    Investor se již od počátku podílel na plánování svého chytrého domu. Byl rozhodnut, že chce systém, který se optimalizuje potřebám Jeho mladé rodiny a v průběhu času jej bude možno snadno přizpůsobovat novým požadavků. Proto si vybral systém Loxone a v průběhu let se mnohokrát přesvědčil o správnosti svoji volby. 
+                                    Geometricky jasně definovaný, plný květin a s velkou zahradou je tento dům jižně od Brna. Fungování je přizpůsobeno aktivnímu životu mladého páru, jejichž dům se musí automaticky postarat o veškerou zeleň i v období, kdy je dům bez svých obyvatel.
                                 </div>
                             </div>
                         </div>
                         <div class="references__item">
-                            <div class="references__image">
+                            <div class="references__image" v-on:click='showImage({w:1650,h:1073,src:"public/img/reference/reference_2.jpg"})' style="background-image: url(public/img/reference/reference_2_preview.jpg)">
                                 <img class="ratio-keeper" src="public/img/ratio-keepers/3x2.png">
                             </div>
                             <div class="references__content">
                                 <div class="references__name">
-                                    RD Hrušovany u Brna
+                                    RD Brno, Svatopluka Čecha
                                 </div>
                                 <div class="references__text paragraph">
-                                    Investor se již od počátku podílel na plánování svého chytrého domu. Byl rozhodnut, že chce systém, který se optimalizuje potřebám Jeho mladé rodiny a v průběhu času jej bude možno snadno přizpůsobovat novým požadavků. Proto si vybral systém Loxone a v průběhu let se mnohokrát přesvědčil o správnosti svoji volby. 
+                                    Malý – velký dům rodiny architekta, navenek zapůsobí svoji jednoduchostí. Uvnitř však překvapí propracovaností každého detailu a spoustou nápaditých řešení, které jsou v symbióze s technickou úrovní celého domu. Dům byl realizován ve spolupráci s architektonickým studiem <a class="references__link" href="https://www.kyzlink.com">KYZLINK ARCHITECTS</a>.
                                 </div>
                             </div>
                         </div>
                         <div class="references__item">
-                            <div class="references__image">
+                            <div class="references__image" v-on:click='showImage({w:1650,h:1073,src:"public/img/reference/reference_3.jpg"})' style="background-image: url(public/img/reference/reference_3_preview.jpg)">
                                 <img class="ratio-keeper" src="public/img/ratio-keepers/3x2.png">
                             </div>
                             <div class="references__content">
                                 <div class="references__name">
-                                    RD Hrušovany u Brna
+                                    Byt Brno, Souběžná
                                 </div>
                                 <div class="references__text paragraph">
-                                    Investor se již od počátku podílel na plánování svého chytrého domu. Byl rozhodnut, že chce systém, který se optimalizuje potřebám Jeho mladé rodiny a v průběhu času jej bude možno snadno přizpůsobovat novým požadavků. Proto si vybral systém Loxone a v průběhu let se mnohokrát přesvědčil o správnosti svoji volby. 
+                                    V rámci kompletní rekonstrukce bytu v panelovém domě, si investor přál vytvořit soudobé prostředí, které bude nejen esteticky zdařilé, ale bude hlavně praktické pro život jeho čtyřčlenné rodiny. Ve spolupráci  s Tomášem Langrem z ateliéru <a class="references__link" href="http://www.arch77.cz">A77 architekti</a> se podařilo skloubit všechny požadavky a vytvořit tak příjemné místo k životu. K uživatelskému komfortu přispěla i zdařilá integrace domácí automatizace Loxone, která se stará o kompletní ovládání techniky od osvětlení až po kvalitní audio systém.
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <span class="references__see-more">
+
+                    <span class="references__see-more" v-bind:class="[visibleButton()]" v-on:click="seeMore">
                         Více referencí
                     </span>
 
@@ -959,225 +972,79 @@ and open the template in the editor.
                 </div>
             </div>
         </footer>
+        <!-- Root element of PhotoSwipe. Must have class pswp. -->
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+            <!-- Background of PhotoSwipe. 
+                 It's a separate element as animating opacity is faster than rgba(). -->
+            <div class="pswp__bg"></div>
+
+            <!-- Slides wrapper with overflow:hidden. -->
+            <div class="pswp__scroll-wrap">
+
+                <!-- Container that holds slides. 
+                    PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                    Don't modify these 3 pswp__item elements, data is added later on. -->
+                <div class="pswp__container">
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+
+                <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+                <div class="pswp__ui pswp__ui--hidden">
+
+                    <div class="pswp__top-bar">
+
+                        <!--  Controls are self-explanatory. Order can be changed. -->
+
+                        <div class="pswp__counter"></div>
+
+                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                        <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                        <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                        <!-- element will get class pswp__preloader--active when preloader is running -->
+                        <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                                <div class="pswp__preloader__cut">
+                                    <div class="pswp__preloader__donut"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                        <div class="pswp__share-tooltip"></div> 
+                    </div>
+
+                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                    </button>
+
+                    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                    </button>
+
+                    <div class="pswp__caption">
+                        <div class="pswp__caption__center"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <script type="text/javascript" src="public/js/functions.js"></script>
+        <script type="text/javascript" src="public/js/services.js"></script>
+        <script type="text/javascript" src="public/js/menu-items.js"></script>
+        <script type="text/javascript" src="public/js/references.js"></script>
         <script type="text/javascript">
 
-            var menu_items = document.querySelectorAll(".menu__item");
-            var hooks = [];
-            var menu_trigger = document.getElementById("menu-trigger");
-            var header = document.getElementById("header");
-            var scrolling = false;
 
-            function debounce(func, wait, immediate) {
-                var timeout;
-                return function () {
-                    var context = this, args = arguments;
-                    var later = function () {
-                        timeout = null;
-                        if (!immediate)
-                            func.apply(context, args);
-                    };
-                    var callNow = immediate && !timeout;
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                    if (callNow)
-                        func.apply(context, args);
-                };
-            }
-
-            function throttle(func, wait = 100) {
-                let timer = null;
-                return function (...args) {
-                    if (timer === null) {
-                        timer = setTimeout(() => {
-                            func.apply(this, args);
-                            timer = null;
-                        }, wait);
-                    }
-                };
-            }
-
-            function getTopOffset(elem) { // crossbrowser version
-                var box = elem.getBoundingClientRect();
-                var body = document.body;
-                var docEl = document.documentElement;
-                var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-                var clientTop = docEl.clientTop || body.clientTop || 0;
-                var top = box.top + scrollTop - clientTop;
-                return Math.round(top);
-            }
-
-            if (!String.prototype.startsWith) {
-                String.prototype.startsWith = function (searchString, position) {
-                    position = position || 0;
-                    return this.substr(position, searchString.length) === searchString;
-                };
-            }
-
-            function documentIsFinishedLoading() {
-                return /^complete|^i|^c/.test(document.readyState);
-            }
-
-            function onDocumentReadyStateComplete(doWork) {
-                var intervalId;
-                if (documentIsFinishedLoading()) {
-                    doWork();
-                } else {
-                    intervalId = setInterval(() => {
-                        if (documentIsFinishedLoading()) {
-                            doWork();
-                            clearInterval(intervalId);
-                        }
-                    }, 250);
-                }
-            }
-
-            function init_check_services() {
-                let hash = window.location.hash.slice(1);
-                if (hash.startsWith("service_")) {
-                    document.body.classList.add('body--lock');
-                    document.getElementById(hash).focus();
-                } else {
-                    document.body.classList.remove('body--lock');
-                }
-            }
-
-            function init_check_services_menu() {
-                var menus = document.getElementsByClassName("service__menu");
-                var length = menus.length;
-                for (var i = 0; i < length; i++) {
-                    var l1 = menus[i].firstElementChild.offsetWidth;
-                    var l2 = menus[i].firstElementChild.firstElementChild.scrollWidth;
-                    if (l1 > l2) {
-                        menus[i].classList.add('service__menu--center');
-                        menus[i].classList.remove('service__menu--overflowing');
-                    } else {
-                        menus[i].classList.remove('service__menu--center');
-                        menus[i].classList.add('service__menu--overflowing');
-                    }
-                }
-            }
-
-            function init_smooth_scrolling() {
-                var viewports = document.querySelectorAll('.service__menu__wrapper');
-                for (let i = 0; i < viewports.length; i++) {
-                    let hasMoved = false;
-                    let prev_x = 0;
-                    new ScrollBooster({
-                        viewport: viewports[i], // required
-                        mode: 'x',
-                        bounce: false,
-                        textSelection: false,
-                        onUpdate: (data) => {
-                            viewports[i].scrollLeft = data.position.x;
-                            if (data.dragOffsetPosition.x === 0) {
-                                prev_x = 0;
-                            }
-                            if (data.dragOffsetPosition.x !== prev_x) {
-                                hasMoved = true;
-                                prev_x = data.dragOffsetPosition.x;
-                            }
-                        },
-                        onClick: (data, event) => {
-                            if (hasMoved) {
-                                hasMoved = false;
-                                prev_x = data.dragOffsetPosition.x;
-                                event.preventDefault();
-                            }
-                        }
-
-                    });
-                }
-            }
-
-            function init_hooks() {
-                for (let i = 0; i < menu_items.length; i++) {
-                    let hash = menu_items[i].hash.slice(1);
-                    hooks[i] = document.getElementById(hash);
-                }
-            }
-
-            var handleScroll = throttle(function (event) {
-                if (scrolling) {
-                    return;
-                }
-                var wy = window.scrollY;
-                for (let i = hooks.length - 1; i >= 0; i--) {
-                    let ey = getTopOffset(hooks[i]);
-                    if ((wy + 200) > ey) {
-                        activateMenuItem(event, i);
-                        break;
-                    }
-
-                }
-            }, 250);
-
-            function scrollTo(element, to, duration) {
-                if (duration < 0)
-                    return;
-                var difference = to - element.scrollTop;
-                var perTick = difference / duration * 2;
-
-                setTimeout(function () {
-                    element.scrollTop = element.scrollTop + perTick;
-                    scrollTo(element, to, duration - 2);
-                }, 10);
-            }
-
-            function activateMenuItem(event, index, scroll = false) {
-                var item = null;
-                for (let i = 0; i < menu_items.length; i++) {
-                    if (i !== index) {
-                        menu_items[i].classList.remove('menu__item--active');
-                    } else {
-                        item = menu_items[i];
-                        menu_items[i].classList.add('menu__item--active');
-                    }
-                }
-                if (scroll) {
-                    if (window.innerWidth < 800) {
-                        closeMenu();
-                    } else {
-                        event.preventDefault();
-                        scrolling = true;
-                        setTimeout(function () {
-                            scrolling = false;
-                        }, 2000);
-                        hooks[index].scrollIntoView({behavior: "smooth"});
-                    }
-            }
-            }
-
-            function closeMenu() {
-                menu_trigger.checked = false;
-            }
-
-            Math.easeInOutQuad = function (t, b, c, d) {
-                t /= d / 2;
-                if (t < 1)
-                    return c / 2 * t * t + b;
-                t--;
-                return -c / 2 * (t * (t - 2) - 1) + b;
-            };
-
-            init_check_services();
-
-            onDocumentReadyStateComplete(() => {
-                init_hooks();
-                init_check_services_menu();
-                init_smooth_scrolling();
-            });
-
-            window.addEventListener('hashchange', init_check_services, false);
-            window.addEventListener('resize', init_check_services_menu, false);
-            window.addEventListener('scroll', function (e) {
-                handleScroll(e);
-            }, false);
-
-            for (let i = 0; i < menu_items.length; i++) {
-                menu_items[i].addEventListener('click', function (e) {
-                    activateMenuItem(e, i, true);
-                });
-            }
 
             Vue.component('carousel-background', {
                 props: ["active", "index"],
@@ -1201,6 +1068,7 @@ and open the template in the editor.
             var app = new Vue({
                 el: '#app',
                 data: {
+                    pswp: document.querySelectorAll('.pswp')[0],
                     dragging: false,
                     timeout: null,
                     active: 0,
@@ -1210,6 +1078,7 @@ and open the template in the editor.
                         false,
                         false
                     ],
+                    groups: [],
                     labels: {
                         1: {
                             1: true,
@@ -1291,10 +1160,51 @@ and open the template in the editor.
                         } else {
                             this.active = 0;
                         }
+                    },
+                    seeMore: function () {
+                        for (let i = 0; i < this.groups.length; i++) {
+                            if (!this.groups[i]) {
+                                Vue.set(this.groups, i, true);
+                                break;
+                            }
+                        }
+                    },
+                    visibleClass: function (number) {
+                        if (number in this.groups) {
+                            if (this.groups[number]) {
+                                return "references__group--visible";
+                            } else {
+                                return "";
+                            }
+                        } else {
+                            return "";
+                        }
+
+                    },
+                    visibleButton: function (number) {
+                        for (let i = 0; i < this.groups.length; i++) {
+                            if (!this.groups[i]) {
+                                return "";
+                            }
+                        }
+                        return "references__see-more--hidden";
+                    },
+                    initGroups: function () {
+                        let groups = document.querySelectorAll('.references__group:not(.references__group--visible)');
+                        for (let i = 0; i < groups.length; i++) {
+                            Vue.set(this.groups, i, false);
+                        }
+                    },
+                    showImage: function (slide) {
+                        var gallery = new PhotoSwipe(this.pswp, PhotoSwipeUI_Default, [slide]);
+                        gallery.init();
                     }
+
+
                 },
                 created() {
                     this.rotate();
+                    this.initGroups();
                 }
             }
             );
