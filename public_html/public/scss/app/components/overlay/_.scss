@@ -55,6 +55,15 @@
     &:hover{
         @include material-box-shadow(2 * $overlay-shadow-depth);
     }
+    &--plain{
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+        box-shadow: none;
+        &:hover{
+            box-shadow: none;
+        }
+    }
     @include media(l){
         align-self: stretch;
     }

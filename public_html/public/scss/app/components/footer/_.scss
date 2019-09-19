@@ -22,22 +22,27 @@
 }
 
 .footer__logo{
-    width: rem(80);
-    height: rem(80);
+    width: rem(260);
+    height: rem(84.1);
     margin-bottom: rem(20);
     margin-left: auto;
     margin-right: auto;
+    @include media($footer-col-breakpoint){
+        margin-left: 0;
+    }
 }
 
 .footer__col{
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     align-content: flex-start;
-    flex-wrap: wrap;
+    margin-bottom: rem(40);
 
     @include media($footer-col-breakpoint){
         width: 30%;
+
     }
 
     &--push{
@@ -71,11 +76,16 @@
 
 .footer__line{
     width: 100%;
+    max-width: rem(500);
     margin-bottom: 1em;
+    text-align: center;
 
-    &--center{
-        text-align: center;
+    @include media($footer-col-breakpoint){
+        text-align: left;
     }
+
+
+
     a{
         color: $color-terciary-light;
     }
