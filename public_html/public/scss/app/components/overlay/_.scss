@@ -32,9 +32,6 @@
 
     &--push{
         margin-top: auto;
-        @include media(l){
-            margin-top: 0;
-        }
     }
 }
 

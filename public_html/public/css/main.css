@@ -410,9 +410,6 @@ body {
   margin-bottom: 1.875rem; }
   .overlay__heading--push {
     margin-top: auto; }
-    @media (min-width: 56.25em) {
-      .overlay__heading--push {
-        margin-top: 0; } }
 
 .overlay__link {
   color: #ffffff;
