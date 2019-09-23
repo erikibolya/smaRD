@@ -60,6 +60,8 @@
         margin: 0;
         background-color: transparent;
         box-shadow: none;
+        margin-bottom: auto;
+        margin-top: rem(20);
         &:hover{
             box-shadow: none;
         }
